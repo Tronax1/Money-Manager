@@ -1,0 +1,29 @@
+{
+  "name": "money-manager",
+  "version": "1.0.0",
+  "description": "React and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tronax1/Money-Manager.git"
+  },
+  "author": "Team 4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tronax1/Money-Manager/issues"
+  },
+  "homepage": "https://github.com/Tronax1/Money-Manager#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
