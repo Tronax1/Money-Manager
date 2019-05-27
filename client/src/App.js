@@ -9,7 +9,12 @@ import NavBar from "./Components/Nav Bar/NavBar"
 function App() {
   return (
     <BrowserRouter>
-    
+      <NavBar/>
+      <Switch>
+        <Route path="/" component={Home} exact/>
+        <Route path="/About" component={About}/>
+        <Route path="/Contact" component={Contact}/>
+      </Switch>
     </BrowserRouter>
   );
 }
