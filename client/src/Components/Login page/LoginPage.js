@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Fade from "../Animations/Smooth Transitions/Fade"
+import LoginForm from "./Login form/LoginForm"
 
 import "./LoginPage.css"
 
@@ -9,7 +10,7 @@ export default class LoginPage extends Component {
             <div>
                 <Fade/>
                 <div>
-                    <p><br/><br/><br/>This is the Login Page</p>
+                    <LoginForm/>
                 </div>
             </div>
         )
