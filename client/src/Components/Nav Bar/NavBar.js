@@ -11,6 +11,7 @@ export default class NavBar extends Component {
                     <NavLink id = "Nav-Links" to="/">Home</NavLink>
                     <NavLink id = "Nav-Links" to="/About">About</NavLink>
                     <NavLink id = "Nav-Links" to="/Contact">Contact</NavLink>
+                    <NavLink id = "Nav-Links" to="/Login">Login</NavLink>
                 </div>
             </div>
         )
