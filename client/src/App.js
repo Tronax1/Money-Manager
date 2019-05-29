@@ -6,6 +6,7 @@ import About from "./Components/About/About"
 import Contact from "./Components/Contact/Contact"
 import NavBar from "./Components/Nav Bar/NavBar"
 import LoginPage from "./Components/Login page/LoginPage"
+import RegisterPage from "./Components/Register Page/RegisterPage"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/About" component={About}/>
         <Route path="/Contact" component={Contact}/>
         <Route path="/Login" component={LoginPage}/>
+        <Route path="/Register" component={RegisterPage}/>
       </Switch>
     </BrowserRouter>
   );
