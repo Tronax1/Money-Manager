@@ -8,13 +8,13 @@ export default class LoginForm extends Component {
             <div>
                 <form className="Alignment">
                     <label>
-                        <input type="text" placeholder="User"/>
+                        <input type="text" className="Text-box" placeholder="User"/>
                     </label>
                     <label>
-                        <input type="text" placeholder="Password" />
+                        <input type="text" className="Text-box" placeholder="Password" />
                     </label>
                     <label>
-                        <button>Login</button>
+                        <button className="Login-Register-Button">LOGIN</button>
                     </label>
                 </form>
             </div>

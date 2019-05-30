@@ -8,16 +8,16 @@ export default class RegisterForm extends Component {
             <div>
                 <form className="Alignment">
                     <label>
-                        <input type="text" placeholder="User" />
+                        <input type="text" className="Text-box" placeholder="User" />
                     </label>
                     <label>
-                        <input type="text" placeholder="Password" />
+                        <input type="text" className="Text-box" placeholder="Password" />
                     </label>
                     <label>
-                        <input type="text" placeholder="Email" />
+                        <input type="text" className="Text-box" placeholder="Email" />
                     </label>
                     <label>
-                        <button>Register</button>
+                        <button className="Login-Register-Button">REGISTER</button>
                     </label>
                 </form>
             </div>
