@@ -1,3 +1,18 @@
-.Nav-Links-hamburger{
-    
+.Hamburger-elements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    background-color: black;
+}
+#Nav-Links-hamburger{
+    text-decoration: none;
+    color: rgb(202, 198, 198);
+    padding: 15px;
+}
+#Nav-Links-hamburger:hover{
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    transition: 0.8s;
 }

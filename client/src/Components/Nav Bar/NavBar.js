@@ -21,12 +21,16 @@ export default class NavBar extends Component {
         return (
             <div className = "Nav">
                 <div className = "Nav-elements">
-                    <NavLink id = "Nav-Links" to="/">Home</NavLink>
+                    <NavLink id = "Home-link" to="/">Home</NavLink>
                     <NavLink id = "Nav-Links" to="/About">About</NavLink>
                     <NavLink id = "Nav-Links" to="/Contact">Contact</NavLink>
                     <NavLink id = "Nav-Links" to="/Login">Login</NavLink>
                     <NavLink id="Nav-Links" to="/Register">Register</NavLink>
-                    <button onClick={this.showMenu}> S</button>
+                    <button id= "Hamburger" onClick={this.showMenu}> 
+                        <div id="Line"/>
+                        <div id="Line"/>
+                        <div id="Line"/>
+                    </button>
                 </div>
                 
                 <DropDown onClose={this.showMenu} show={this.state.show}/>
