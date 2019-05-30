@@ -24,3 +24,5 @@
     color: black;
     transition: 0.8s;
 }
+@media only screen and (min-width: 768px){
+}

@@ -26,8 +26,9 @@ export default class NavBar extends Component {
                     <NavLink id = "Nav-Links" to="/Contact">Contact</NavLink>
                     <NavLink id = "Nav-Links" to="/Login">Login</NavLink>
                     <NavLink id="Nav-Links" to="/Register">Register</NavLink>
+                    <button onClick={this.showMenu}> S</button>
                 </div>
-                <button onClick={this.showMenu}> S</button>
+                
                 <DropDown onClose={this.showMenu} show={this.state.show}/>
             </div>
         )

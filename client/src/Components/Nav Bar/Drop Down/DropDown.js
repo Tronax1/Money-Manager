@@ -9,11 +9,11 @@ export default class DropDown extends Component {
         return (
             <div>
                 <div>
-                    <NavLink id = "Nav-Links" to="/">Home</NavLink>
-                    <NavLink id = "Nav-Links" to="/About">About</NavLink>
-                    <NavLink id = "Nav-Links" to="/Contact">Contact</NavLink>
-                    <NavLink id = "Nav-Links" to="/Login">Login</NavLink>
-                    <NavLink id="Nav-Links" to="/Register">Register</NavLink>
+                    <NavLink id = "Nav-Links-hamburger" to="/">Home</NavLink>
+                    <NavLink id = "Nav-Links-hamburger" to="/About">About</NavLink>
+                    <NavLink id = "Nav-Links-hamburger" to="/Contact">Contact</NavLink>
+                    <NavLink id = "Nav-Links-hamburger" to="/Login">Login</NavLink>
+                    <NavLink id="Nav-Links-hamburger" to="/Register">Register</NavLink>
                 </div>
             </div>
         )
