@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Fade from "../Animations/Smooth Transitions/Fade"
 import LoginForm from "./Login form/LoginForm"
+import UserPage from "../UserProfile/UserPage"
 
+import "./UserPage.css"
 import "./LoginPage.css"
 
 export default class LoginPage extends Component {
@@ -11,6 +13,7 @@ export default class LoginPage extends Component {
                 <Fade/>
                 <div>
                     <LoginForm/>
+                    <Route path="/User" component = {UserPage}/>
                 </div>
             </div>
         )
