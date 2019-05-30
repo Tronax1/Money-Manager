@@ -8,8 +8,8 @@ export default class UserPage extends Component {
             <div>            
                 <DonutChart 
                     data = {[{
-                        label: 'Income',
-                        value: 2000
+                        label: 'Give you up',
+                        value: 25
                     },
                     {
                         label: ' ',

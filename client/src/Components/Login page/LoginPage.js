@@ -5,7 +5,7 @@ import Fade from "../Animations/Smooth Transitions/Fade"
 import LoginForm from "./Login form/LoginForm"
 import UserPage from "../UserProfile/UserPage"
 
-//import "./UserPage.css"
+import "../UserProfile/UserPage"
 import "./LoginPage.css"
 
 export default class LoginPage extends Component {
