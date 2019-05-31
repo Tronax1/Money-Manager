@@ -25,7 +25,7 @@ export default class LoginForm extends Component {
             <div>
                 <form className="Alignment">
                     <label>
-                        <input type="text" className="Text-box" placeholder="User" name="email"
+                        <input type="email" className="Text-box" placeholder="User" name="email"
                         value={this.state.email} onChange={this.handleChange}/>
                     </label>
                     <label>
