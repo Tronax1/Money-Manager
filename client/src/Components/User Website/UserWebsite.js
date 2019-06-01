@@ -1,20 +1,34 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom"
 
-import Login from "../Login page/LoginPage"
-import RegisterPage from "../Register Page/RegisterPage"
+import LoginPage from "../Login page/LoginPage"
 import UserPage from "../UserProfile/UserPage"
+import fire from "../../Config/Fire"
 
 export default class UserWebsite extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: {}
+        }
+    }
+    componentDidMount() {
+        this.authListener();
+    }
+    authListener() {
+        fire.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({ user });
+            }
+            else {
+                this.setState({ user: null });
+            }
+        })
+    }
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/Login" component={Login} exact />
-                    <Route path="/Register" component={RegisterPage} />
-                    <Route path="/User" component={UserPage} />
-                </Switch>
-            </BrowserRouter>
+            <div>
+            {this.state.user ? (<UserPage/>) : (<LoginPage/>)}
+           </div>
         )
     }
 }
