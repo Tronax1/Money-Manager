@@ -29,7 +29,7 @@ export default class LoginForm extends Component {
                         value={this.state.email} onChange={this.handleChange}/>
                     </label>
                     <label>
-                        <input type="text" className="Text-box" placeholder="Password" name="password" 
+                        <input type="password" className="Text-box" placeholder="Password" name="password" 
                         value={this.state.password} onChange={this.handleChange}/>
                     </label>
                     <label>
