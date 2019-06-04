@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
-//import {Doughnut} from 'react-chartjs-2'
 import DonutChart from 'react-donut-chart'
 
 import "./UserPage.css"
-
-
 
 export default class UserPage extends Component {
     render() {
         return (
             <div>            
-              <p><br /><br /><br />Test one two three</p>
+              <form className = "Alignment">
 
               <DonutChart
               data = {[{
-                    label: 'Dick',
-                    value: 25 
+                    label: 'Income',
+                    value: 50000 
               },
-              {
-                  label: ' ',
-                  value: 75,
-                  isEmpty: true
-                
-              }]}/>
+             ]}/>
+
+            <DonutChart
+              data = {[{
+                    label: 'Expenses',
+                    value: 20000 
+              },
+                ]}/>
+
+                </form>
+                <label>
+                        <label className="Text"/>
+                        <h2>Total:</h2>
+                    </label>
             </div>
         )
     }

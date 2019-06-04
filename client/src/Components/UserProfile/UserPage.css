@@ -1,0 +1,26 @@
+.Alignment{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: -100px;
+    justify-content: space-evenly;
+    left: 5vw;
+    width: 90%;
+}
+
+.Text{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 100px 0;
+}
+h2{
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+  @media all and (min-width: 600px) {
+    .Alignment { flex: 1 auto; }
+  }
+  
