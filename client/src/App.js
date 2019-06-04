@@ -7,6 +7,7 @@ import Contact from "./Components/Contact/Contact"
 import NavBar from "./Components/Nav Bar/NavBar"
 import LoginPage from "./Components/Login page/LoginPage"
 import RegisterPage from "./Components/Register Page/RegisterPage"
+import UserPage from "./Components/UserProfile/UserPage"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Contact" component={Contact}/>
         <Route path="/Login" component={LoginPage}/>
         <Route path="/Register" component={RegisterPage}/>
+        <Route path="/User" component={UserPage}/>
       </Switch>
     </BrowserRouter>
   );
