@@ -9,7 +9,7 @@ export default class Auth extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {}
+            user: null
         }
     }
     componentDidMount() {
@@ -26,14 +26,11 @@ export default class Auth extends Component {
         })
     }
     render() {
-        return (
-            <Route render={() => (
-                this.state.user ? (
-                    <Redirect to="/UserPage" />
-                ) : (
-                        <LoginPage />
-                    )
-            )} />
+        console.log(this.state.user);
+        return(
+            <div>
+            {this.state.user ? ( <Redirect to="/UserPage" /> ) : ( <LoginPage /> )} 
+            </div>
         )
     }
 }
