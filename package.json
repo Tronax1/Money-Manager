@@ -21,7 +21,8 @@
   "homepage": "https://github.com/Tronax1/Money-Manager#readme",
   "dependencies": {
     "concurrently": "^4.1.0",
-    "express": "^4.17.0"
+    "express": "^4.17.0",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
