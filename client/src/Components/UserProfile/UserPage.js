@@ -7,8 +7,8 @@ export default class UserPage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            total1:50000,
-            total2:20000
+            total1:5000,
+            total2:2000
         } 
     }
     render() {
@@ -17,20 +17,21 @@ export default class UserPage extends Component {
                 <div class = "background">
 
                 
-                 <div class = "Dash">
-                    <h2 class = "Dash-text">Dashboard </h2>
+                 <div className = "Dash">
+                    <h2 className = "Dash-text">Dashboard </h2>
 
                  </div>
-    
-                    <div class ="donut1"> Income
+                
+                    <div className ="donut1"> Income
                 </div>
 
-                <div class = "donut2"> Expenses
+                <div className = "donut2"> Expenses
                 </div>
                 
-              <div class = "Alignment">
-
+              
+                <div className = "Align">
               <DonutChart
+              
               data = {[{
                     label: '$'+this.state.total1,
                     value: this.state.total1                        
@@ -41,7 +42,8 @@ export default class UserPage extends Component {
             <DonutChart
               data = {[{
                     label: '$'+this.state.total2,
-                    value: this.state.total2 
+                    value: this.state.total2, 
+                    
               },
               {
                 label: ' ',
@@ -51,7 +53,7 @@ export default class UserPage extends Component {
                 ]}/>
                 </div>
                     
-                        <div class = "Total">
+                        <div className = "Total">
                         Total: ${this.state.total1 - this.state.total2}
                     </div>
                     </div>
