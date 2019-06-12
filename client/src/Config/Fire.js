@@ -13,3 +13,5 @@ import configKeys from './APIKeys'
   // Initialize Firebase
   const fire = firebase.initializeApp(firebaseConfig);
   export default fire;
+  export const authRef = firebase.auth();
+  export const provider = new firebase.auth.GoogleAuthProvider();
