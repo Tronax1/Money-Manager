@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router'
 
 import LoginPage from "../Login page/LoginPage"
+import UserPage from "../UserProfile/UserPage"
 
 import fire from "../../Config/Fire"
 
@@ -29,7 +29,7 @@ export default class Auth extends Component {
         console.log(this.state.user);
         return(
             <div>
-            {this.state.user ? ( <Redirect to="/UserPage" /> ) : ( <LoginPage /> )} 
+            {this.state.user ? ( <UserPage/> ) : ( <LoginPage /> )} 
             </div>
         )
     }
