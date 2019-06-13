@@ -26,14 +26,14 @@ export default class LoginForm extends Component {
                 <form className="Alignment">
                     <label>
                         <input type="email" className="Text-box" placeholder="User" name="email"
-                        value={this.state.email} onChange={this.handleChange}/>
+                         onChange={this.handleChange}/>
                     </label>
                     <label>
                         <input type="password" className="Text-box" placeholder="Password" name="password" 
-                        value={this.state.password} onChange={this.handleChange}/>
+                         onChange={this.handleChange}/>
                     </label>
                     <label>
-                        <button className="Login-Register-Button">LOGIN</button>
+                        <button className="Login-Register-Button" onClick={this.login}>LOGIN</button>
                     </label>
                 </form>
             </div>
