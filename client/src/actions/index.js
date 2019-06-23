@@ -1,8 +1,8 @@
-import {authRef, provider} from "../Config/Fire";
+import fire from "../Config/Fire";
 import {FETCH_USER} from "./types"
 
 export const fetchUser = () => dispatch => {
-    authRef.onAuthStateChanged(user => {
+    fire.auth().onAuthStateChanged(user => {
         if (user) {
             dispatch({
                 type: FETCH_USER,
@@ -17,22 +17,16 @@ export const fetchUser = () => dispatch => {
     });
 };
 
-export const signIn = () => dispatch => {
-    authRef
-        .signInWithPopup(provider)
-        .then(result => { })
-        .catch(error => {
-            console.log(error);
-        });
+export const signIn = (user, pass) => dispatch => {
+    console.log("Estoy corriendo");
+    fire.auth().signInWithEmailAndPassword(user, pass).then(data=>{
+        console.log(data);
+    }).catch(err=>{
+        console.log("error on this shit");
+    });
+    
 };
 
 export const signOut = () => dispatch => {
-    authRef
-        .signOut()
-        .then(() => {
-            // Sign-out successful.
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    fire.auth().signOut();
 };
