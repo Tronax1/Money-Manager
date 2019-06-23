@@ -6,7 +6,8 @@ import '../Mortgage Form/MortgageForm.css'
 export default class MortgageForm extends Component {
 
     state={
-        Principal: "",
+        HomePrice: "",
+        DownPayment: "",
         InterestRate: "",
         LoanLength: ""
     }
@@ -21,7 +22,8 @@ export default class MortgageForm extends Component {
         e.preventDefault();
         this.props.onSubmit(this.state); 
         this.setState({
-            Principal: "",
+            HomePrice: "",
+            DownPayment: "",
             InterestRate: "",
             LoanLength: ""
         })
@@ -36,13 +38,25 @@ export default class MortgageForm extends Component {
                         <NumberFormat 
                             prefix={'$'}
                             className="mText-box"
-                            displayType={'Text'}
-                            placeholder="Principal"
+                            placeholder="Home Price"
                             thousandSeparator={true}
-                            value={this.state.Principal}
+                            value={this.state.HomePrice}
                             onValueChange={(values) =>{
                                 const {formattedValue, value} = values;
-                                this.setState({Principal: value})
+                                this.setState({HomePrice: value})
+                            }}
+                        />
+                    </label>
+                    <label>
+                        <NumberFormat 
+                            prefix={'$'}
+                            className="mText-box"
+                            placeholder="Down Payment"
+                            thousandSeparator={true}
+                            value={this.state.DownPayment}
+                            onValueChange={(values) =>{
+                                const {formattedValue, value} = values;
+                                this.setState({DownPayment: value})
                             }}
                         />
                     </label>

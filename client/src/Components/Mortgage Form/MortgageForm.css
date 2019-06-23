@@ -5,7 +5,7 @@
     top: 200px;
     justify-content: space-evenly;
     left: 20vw;
-    width: 50%;
+    width: 60%;
 }
 .mText-box{
     height: 30px;
@@ -19,7 +19,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40%;
 }
 .Mortgage-Button{
     position: relative;
@@ -29,14 +28,14 @@
     box-shadow: 2px 2px gray;
     background-color: rgb(83, 240, 52);
     color: white;
-    left: 40%;
+    align-content: center;
 
 }
 *:focus{
     outline: none;
 }
 @media only screen and (min-width: 768px){
-    .Alignment{
+    .mAlignment{
         width: 400px;
         left: 33vw;
     }
