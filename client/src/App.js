@@ -8,7 +8,6 @@ import NavBar from "./Components/Nav Bar/NavBar"
 import LoginPage from "./Components/Login page/LoginPage"
 import RegisterPage from "./Components/Register Page/RegisterPage"
 import UserPage from "./Components/UserProfile/UserPage"
-import Test from "./Components/Test/Test"
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/Login" component={LoginPage}/>
         <Route path="/Register" component={RegisterPage}/>
         <Route path="/User" component={UserPage}/>
-        <Route path="/Test" component={Test}/>
       </Switch>
     </BrowserRouter>
   );
