@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
+import {connect} from "react-redux"
+import {fetchUser} from "./actions"
 
 import Home from "./Components/Home Page/Home"
 import About from "./Components/About/About"
@@ -8,7 +10,11 @@ import NavBar from "./Components/Nav Bar/NavBar"
 import Auth from "./Components/Authentication/Auth"
 import RegisterPage from "./Components/Register Page/RegisterPage"
 
-function App() {
+class App extends Component {
+  componentDidMount(){
+    this.props.fetchUser();
+  }
+  render(){
     return (
       <BrowserRouter>
         <NavBar />
@@ -20,6 +26,6 @@ function App() {
           <Route path="/Register" component={RegisterPage} />
         </Switch>
       </BrowserRouter>
-    );
+    );}
 }
-export default App;
+export default connect(null, {fetchUser})(App);

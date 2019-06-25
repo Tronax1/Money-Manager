@@ -1,35 +1,20 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux"
 
 import LoginPage from "../Login page/LoginPage"
 import UserPage from "../UserProfile/UserPage"
 
-import fire from "../../Config/Fire"
 
-export default class Auth extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: null
-        }
-    }
-    componentDidMount() {
-        this.authListener();
-    }
-    authListener() {
-        fire.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user });
-            }
-            else {
-                this.setState({ user: null });
-            }
-        })
-    }
+class Auth extends Component {
     render() {
         return(
             <div>
-            {this.state.user ? ( <UserPage/> ) : ( <LoginPage /> )} 
+            {this.props.auth ? ( <UserPage/> ) : ( <LoginPage /> )} 
             </div>
         )
     }
 }
+function mapStatetoProps({auth}){
+    return {auth};
+}
+export default connect(mapStatetoProps)(Auth);

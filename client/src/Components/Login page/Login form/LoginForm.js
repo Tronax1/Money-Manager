@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux"
+import {signIn} from "../../../actions"
 
 import "./LoginForm.css"
-import fire from '../../../Config/Fire';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     constructor(props){
         super(props);
-        this.login = this.login.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.state = {
             email: '',
             password: ''
         }
     }
-    login(e){
+    handleSubmit(e){
         e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+        this.props.signIn(this.state.email, this.state.password);
     }
     handleChange(e){
         this.setState({[e.target.name]:e.target.value});
@@ -23,7 +24,7 @@ export default class LoginForm extends Component {
     render() {
         return (
             <div>
-                <form className="Alignment">
+                <form className="Alignment" onSubmit={this.handleSubmit}>
                     <label>
                         <input type="email" className="Text-box" placeholder="User" name="email"
                          onChange={this.handleChange}/>
@@ -33,10 +34,12 @@ export default class LoginForm extends Component {
                          onChange={this.handleChange}/>
                     </label>
                     <label>
-                        <button className="Login-Register-Button" onClick={this.login}>LOGIN</button>
+                        <button className="Login-Register-Button" 
+                        >LOGIN</button>
                     </label>
                 </form>
             </div>
         )
     }
 }
+export default connect(null, {signIn})(LoginForm);
