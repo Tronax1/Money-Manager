@@ -1,23 +1,16 @@
 import React, { Component } from 'react'
-import {Route} from "react-router-dom"
 
 import Fade from "../Animations/Smooth Transitions/Fade"
 import LoginForm from "./Login form/LoginForm"
-import UserPage from "../UserProfile/UserPage"
-
-import "../UserProfile/UserPage"
 import "./LoginPage.css"
 
 export default class LoginPage extends Component {
     render() {
-        return (
-            <div>
-                <Fade/>
+            return (
                 <div>
-                    <LoginForm/>
-                    <Route path="/User" component={UserPage}/>
+                    <Fade />
+                    <LoginForm />
                 </div>
-            </div>
-        )
-    }
+            )
+        }
 }
