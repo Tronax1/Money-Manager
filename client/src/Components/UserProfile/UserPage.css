@@ -5,7 +5,7 @@
     justify-content: space-evenly;
     top: 40px;
     left: 10px;
-    width: 80%;
+
 }
 
 .background{
@@ -17,12 +17,10 @@
 .Total{
   font-size:1rem;
   font-weight:bold;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-top:200px;
-  margin-left:700px;
+  margin-top:600px;
+  margin-left:-350px;
 }
+
 h2{
   font-size: 3rem;
   font-weight: bold;
@@ -32,29 +30,34 @@ h2{
   height: 90px;
   background:rgb(10, 131, 36);
   border: 2px solid;
-  width: 100%
+  width: 100%;
   
 }
 
 .Dash-text{
   height: 80px;
 }
-
-.donut1{
-  font-size: 1.5rem;
+h3{
+  font-size:1.8rem;
   font-weight:bold;
-  height: 100px;
-  margin-top:30px;
-  margin-left: 100px;
+}
+.donut1{
+  height:80px;
+}
+.donut1-text{
+  margin-top:80px;
+  margin-left: 200px;
+
 }
 .donut2{
-  font-size: 1.5rem;
-  font-weight:bold;
-  height: 50px;
-  margin-left:500px;
-  margin-top:-95px;
+  height:80px;
 }
 
+.donut2-text{
+  margin-left:200px;
+  margin-top:80px;
+
+}
 .donutchart-innertext-label {
   font-size: 40px;
   font-weight: bold;
@@ -92,9 +95,13 @@ h2{
   opacity: 0;
 }
 
-  @media all and (min-width: 600px) {
-    .Alignment { flex: 1 auto; }
-  }
+@media only screen and (min-width: 768px){
+  .Align { flex: 1 auto; }
+  .donut1 { flex: 1 auto; }
+  .donut2 { flex: 1 auto; }
+}
+  
+
   
   @keyframes DrawLine {
     to {

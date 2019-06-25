@@ -14,22 +14,21 @@ export default class UserPage extends Component {
     render() {
         return (
             <div>   
-                <div class = "background">
+                <div className = "background">
 
-                
                  <div className = "Dash">
                     <h2 className = "Dash-text">Dashboard </h2>
 
                  </div>
                 
-                    <div className ="donut1"> Income
-                </div>
-
-                <div className = "donut2"> Expenses
-                </div>
                 
               
                 <div className = "Align">
+
+                <div className ="donut1"> 
+                <h3 className = "donut1-text"> Income </h3>
+        
+                
               <DonutChart
               
               data = {[{
@@ -38,7 +37,11 @@ export default class UserPage extends Component {
               }, 
 
              ]}/>
-
+                </div>
+                <div className = "donut2"> 
+                <h3 className = "donut2-text"> Expense </h3>
+       
+              
             <DonutChart
               data = {[{
                     label: '$'+this.state.total2,
@@ -51,11 +54,14 @@ export default class UserPage extends Component {
                 isEmpty: true
                 }
                 ]}/>
-                </div>
-                    
-                        <div className = "Total">
+                  </div>
+
+                  <div className = "Total">
                         Total: ${this.state.total1 - this.state.total2}
                     </div>
+                </div>
+                    
+                        
                     </div>
                     
             </div>
