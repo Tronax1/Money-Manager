@@ -1,0 +1,112 @@
+.Align{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-evenly;
+    top: 40px;
+    left: 10px;
+    width: 80%;
+}
+
+.background{
+  height: 110vh;
+  background-color: #16bce6;
+  position:relative;
+
+}
+.Total{
+  font-size:1rem;
+  font-weight:bold;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-top:200px;
+  margin-left:700px;
+}
+h2{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.Dash{
+  height: 90px;
+  background:rgb(10, 131, 36);
+  border: 2px solid;
+  width: 100%
+  
+}
+
+.Dash-text{
+  height: 80px;
+}
+
+.donut1{
+  font-size: 1.5rem;
+  font-weight:bold;
+  height: 100px;
+  margin-top:30px;
+  margin-left: 100px;
+}
+.donut2{
+  font-size: 1.5rem;
+  font-weight:bold;
+  height: 50px;
+  margin-left:500px;
+  margin-top:-95px;
+}
+
+.donutchart-innertext-label {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  position: absolute;
+}
+
+.donutchart-innertext-value {
+  font-size: 36px;
+  font-weight: bold;
+
+}
+
+.donutchart-arcs-path, .donutchart-legend-item-rect {
+  fill-opacity: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-name: DrawLine, FillIn;
+
+  animation-delay: .5s, 2s;
+    animation-duration: 3s, 1s; 
+    stroke-dashArray: 1500;
+    stroke-dashoffset: 1500;
+}
+
+.donutchart-legend{
+  opacity:0;
+}
+.selected.donutchart-legend-item-label, .toggled.donutchart-legend-item-label {
+  opacity: 0;
+  fill: #960b01;
+}
+
+.donutchart-legend-item-rect{
+  opacity: 0;
+}
+
+  @media all and (min-width: 600px) {
+    .Alignment { flex: 1 auto; }
+  }
+  
+  @keyframes DrawLine {
+    to {
+        stroke-dashOffset: 0;
+    }
+}
+
+@keyframes FillIn {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        fill-opacity: 1;
+    }
+}

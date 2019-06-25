@@ -1,0 +1,42 @@
+.mAlignment{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    justify-content: space-evenly;
+    left: 20vw;
+    width: 60%;
+}
+.mText-box{
+    height: 30px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 100%;
+    width: 100%;
+}
+.button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Mortgage-Button{
+    position: relative;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    box-shadow: 2px 2px gray;
+    background-color: rgb(83, 240, 52);
+    color: white;
+    align-content: center;
+
+}
+*:focus{
+    outline: none;
+}
+@media only screen and (min-width: 768px){
+    .mAlignment{
+        width: 400px;
+        left: 33vw;
+    }
+}

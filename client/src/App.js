@@ -9,7 +9,8 @@ import Contact from "./Components/Contact/Contact"
 import NavBar from "./Components/Nav Bar/NavBar"
 import Auth from "./Components/Authentication/Auth"
 import RegisterPage from "./Components/Register Page/RegisterPage"
-
+import UserPage from "./Components/UserProfile/UserPage"
+ 
 class App extends Component {
   componentDidMount(){
     this.props.fetchUser();
