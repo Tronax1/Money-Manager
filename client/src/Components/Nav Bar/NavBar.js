@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {NavLink} from "react-router-dom"
-
+import {connect} from 'react-redux'
 import DropDown from "./Drop Down/DropDown"
 
 import "./NavBar.css"
 
-export default class NavBar extends Component {
+ class NavBar extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -19,7 +19,8 @@ export default class NavBar extends Component {
     }
     render() {
         return (
-            <div className = "Nav">
+            <div>
+            {!this.props.auth ? (<div className = "Nav">
                 <div className = "Nav-elements">
                     <NavLink id = "Home-link" to="/">Home</NavLink>
                     <NavLink id = "Nav-Links" to="/About">About</NavLink>
@@ -34,7 +35,14 @@ export default class NavBar extends Component {
                 </div>
                 
                 <DropDown onClose={this.showMenu} show={this.state.show}/>
+            </div>) :
+            (<div></div>)
+            }
             </div>
         )
     }
 }
+function mapStatetoProps({auth}){
+    return {auth};
+}
+export default connect(mapStatetoProps)(NavBar)
