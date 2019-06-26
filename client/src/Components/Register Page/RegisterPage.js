@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router'
+import {connect} from 'react-redux'
 
 import RegisterForm from "./Register Form/RegisterForm"
 import Fade from "../Animations/Smooth Transitions/Fade"
 import "./RegisterPage.css"
 
-export default class RegisterPage extends Component {
+class RegisterPage extends Component {
     render() {
         return (
             <div>
                 <Fade/>
-                <RegisterForm/>
+                {this.props.auth ? (<Redirect to="/Login" />) : (<RegisterForm />)}
             </div>
         )
     }
 }
+function mapStatetoProps({auth}){
+    return {auth};
+}
+export default connect(mapStatetoProps)(RegisterPage)
