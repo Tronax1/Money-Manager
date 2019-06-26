@@ -1,0 +1,136 @@
+.moneyimg{
+   width: 100%;
+   height: 300px;
+   position: absolute;
+
+}
+img{
+    width:100%;
+    height:100%;
+}
+
+.money-text{
+    display:flex;
+    position: absolute;
+    top:25px;
+    left:20px;
+    width:100%;
+}
+h4{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+}
+
+.budgetimg{
+    display:flex;
+    position:absolute;
+    top:350px;
+    left:50px;
+    width:300px;
+    height:300px;
+
+}
+
+.spendingimg{
+    display:flex;
+    position:absolute;
+    top:340px;
+    left:370px;
+    width:330px;
+    height:330px;
+}
+
+.savingimg{
+    display:flex;
+    position:absolute;
+    top:345px;
+    left:700px;
+    width:330px;
+    height:310px;
+}
+
+.encryptimg{
+    display:flex;
+    position: absolute;
+    top:700px;
+    left:600px;
+    width:400px;
+    height:250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:#0F70F9;
+}
+.encrypt-text{
+    display:flex;
+    position: absolute;
+    top:-10px;
+    left:-470px;
+    width:100%;
+    font-weight:bold;
+  
+}
+
+.encrypt-text1{
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    top:100px;
+    left:-470px;
+    width:100%;
+}
+.encryptback{ 
+    background-color: rgb(158, 168, 185);
+    opacity: 0.1;
+    position:absolute;
+    width:225%;
+    left:-500px;
+    top:0px;
+    height:250px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.billsimg{
+    display:flex;
+    position: absolute;
+    top:1030px;
+    left:100px;
+    width:400px;
+    height:250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:#0F70F9;
+}
+
+.bills-text{
+    display:flex;
+    position: absolute;
+    top:-5px;
+    left:470px;
+    width:100%;
+    font-weight:bold;
+}
+
+.bills-text1{
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    top:80px;
+    left:470px;
+    width:100%;
+}
+.billsback{
+    background-color: rgb(158, 168, 185);
+    opacity: 0.1;
+    position:absolute;
+    width:225%;
+    left:0px;
+    top:0px;
+    height:250px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
