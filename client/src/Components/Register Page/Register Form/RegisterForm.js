@@ -33,11 +33,11 @@ class RegisterForm extends Component {
                         onChange={this.handleChange} />
                     </label>
                     <label>
-                        <input type="text" className="Text-box" placeholder="Email" name="email"
+                        <input type="email" className="Text-box" placeholder="Email" name="email"
                         onChange={this.handleChange} />
                     </label>
                     <label>
-                        <input type="text" className="Text-box" placeholder="Password" name="password" 
+                        <input type="password" className="Text-box" placeholder="Password" name="password" 
                         onChange={this.handleChange}/>
                     </label>
                     <label>
