@@ -18,7 +18,6 @@ export const fetchUser = () => dispatch => {
 };
 
 export const signIn = (user, pass) => dispatch => {
-    console.log("Estoy corriendo");
     fire.auth().signInWithEmailAndPassword(user, pass).then(data=>{
         console.log(data);
     }).catch(err=>{
@@ -26,6 +25,14 @@ export const signIn = (user, pass) => dispatch => {
     });
     
 };
+
+export const signUp = (user, pass) => dispatch =>{
+    fire.auth().createUserWithEmailAndPassword(user, pass).then(data=>{
+        console.log(data);
+    }).catch(err=>{
+        console.log("error in this shit");
+    });
+}
 
 export const signOut = () => dispatch => {
     fire.auth().signOut();
