@@ -21,41 +21,48 @@ export default class Home extends Component {
             simply click the register button to sign up for a free account. </h4>
   
                 </div>
-                <div className = "budgetimg">
-                <img src = {budget}  alt ="Budget"/>
-                </div>
+                <div className="Mid-section"> 
+                    <div className="Mid-Flex">
+                        <div className="budgetimg">
+                            <img className="Image-size" src={budget} alt="Budget" />
+                        </div>
 
-                <div className = "spendingimg">
-                <img src = {spending}  alt ="Spending"/>
-                </div>
+                        <div className="spendingimg">
+                            <img className="Image-size" src={spending} alt="Spending" />
+                        </div>
 
-                <div className = "savingimg">
-                <img src = {saving}  alt ="Saving"/>
+                        <div className="savingimg">
+                            <img className="Image-size" src={saving} alt="Saving" />
+                        </div>
+                    </div>
                 </div>
-
                
-                <div className = "encryptimg">
-                
-                <img src = {encrypt}  alt ="Encrypt"/>
-                <h3 className = "encrypt-text"> Get started with our secure encryption </h3> 
-                <h5 className = "encrypt-text1"> > It's easy to set up your free acount in seconds.<p><br/>> We keep your information secure by encrypting your data with a 256-bit encryption. </p></h5>
-                <div className = "encryptback">
+                <div className="Lower-Formatting">
+                    <div className="Formatting-Flex">
+                        <div>
+                            <p className="encrypt-text"> Get started with our secure encryption </p>
+                            <p className="encrypt-text1">  It's easy to set up your free acount in seconds.<br />> We keep your information secure by encrypting your data with a 256-bit encryption.</p>
+                        </div>
+                        <div>
+                            <img className="encryptimg" src={encrypt} alt="Encrypt" />
+                        </div>
+                    </div>
                 </div>
+                <div className="Lower-Formatting">
+                    <div className="Formatting-Flex">
+                        <div>
+                            <img className="encryptimg" src={bills} alt="Bills" />
+                        </div>
+                        <div>
+                            <p className="bills-text"> Stay on top of your bills </p>
+                            <p className="bills-text1"> > See your bills and money in one place.<br /><br /> > Receive custom suggestions to help save money. <br /><br/>
+                                 > Current and past transactions shown to help compare your spendings</p>
+                            <div className="billsback">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div className ="billsimg">
-                    <img src = {bills} alt = "Bills"/>
-                    <h3 className = "bills-text"> Stay on top of your bills </h3>
-                    <h5 className = "bills-text1"> > See your bills and money in one place.<p><br/>> Receive custom suggestions to help save money. </p>
-                    <p> > Current and past transactions shown to help compare your spendings</p></h5>
-                <div className = "billsback">
-                </div>
-                </div>
-
-
-
-            </div>
-            
+            </div>  
         )
     }
 }
