@@ -4,8 +4,8 @@ import Fade from "../Animations/Smooth Transitions/Fade"
 import "./Contact.css"
 
 export default class Contact extends Component {
-        constructor(){
-            super()
+        constructor(props){
+            super(props)
             this.state = {
                 name: '',
                 email: '',
@@ -30,12 +30,24 @@ export default class Contact extends Component {
         return (
             <div>
                 <Fade/>
-                    <p><br/><br/><br/>This is the contact page</p>
+                <div className = "back">
+                <h2 className = "contact-header">
+                <br/>Let's Connect! 
+                </h2>
+                <h4 className = "contact-headerbelow"> We'd love to help you start saving money.</h4>
+                </div>
+
+                <h2 className = "contactquestion">
+                    Do you need help? Have a tech question? Want to give feedback? <br/>
+                    Our support team is here to help! Contact us today!  
+                </h2>
+
+                   
                     <div>
-            <form onSubmit={this.handleSubmit} className="align">
+            <form onSubmit={this.handleSubmit} className="alignit">
                 <label>
                  <input type="text" id = "name"className="format" name = "name" 
-                 placeholder = "Name" onChange={this.handleChange}/>
+                 placeholder = "Full Name" onChange={this.handleChange}/>
                 </label>
                 <label>
                  <input type="text" id = "email" className="format" name = "email"
@@ -47,7 +59,7 @@ export default class Contact extends Component {
                 </label>
                 <label>
                   <input type="textarea" id = "message" className="format message" name = "message" 
-                  placeholder= "Message" onChange={this.handleChange}/>
+                  placeholder= "Message..." onChange={this.handleChange}/>
                 </label>
                 <label>
                   <button id ="submit" className="submitForm">Submit</button>
