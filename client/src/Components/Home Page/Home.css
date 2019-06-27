@@ -54,9 +54,22 @@ h4{
     font-weight: bold;
 }
 .encryptback{ 
+    position: absolute;
     background-color: rgb(158, 168, 185);
-    opacity:0.1;
-    width: 80%;
+    opacity: 0.1;
+    top: 1270px;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+.billsback{
+    position: absolute;
+    background-color: rgb(158, 168, 185);
+    opacity: 0.1;
+    top: 2100px;
+    width: 100%;
+    height: 350px;
+    z-index: -1;
 }
 .encryptimg{
     width:100%;
@@ -87,84 +100,17 @@ h4{
     .Mid-section{
         height:300px;
     }
-    /*
-    .budgetimg{
-        display:flex;
-        position:absolute;
-        top:350px;
-        left:50px;
-        width:300px;
-        height:300px;
-
-    }
-
-    .spendingimg{
-        display:flex;
-        position:absolute;
-        top:340px;
-        left:370px;
-        width:330px;
-        height:330px;
-    }
-
-    .savingimg{
-        display:flex;
-        position:absolute;
-        top:345px;
-        left:700px;
-        width:330px;
-        height:310px;
-    }
-    
-    .encryptimg{
-        display:flex;
-        position: absolute;
-        top:700px;
-        left:600px;
-        width:400px;
-        height:250px;
-        border-style: solid;
-        border-width: 2px;
-        border-color:#0F70F9;
-    }
-    
-
-    
     .encryptback{ 
-        background-color: rgb(158, 168, 185);
-        opacity: 0.1;
-        position:absolute;
-        width:225%;
-        left:-500px;
-        top:0px;
-        height:250px;
-        background-position: center;
-        background-repeat: no-repeat;
+        top: 655px;
+        left: 2%;
+        width: 64%;
+        height: 300px;
     }
-
-    .billsimg{
-        display:flex;
-        position: absolute;
-        top:1030px;
-        left:100px;
-        width:400px;
-        height:250px;
-        border-style: solid;
-        border-width: 2px;
-        border-color:#0F70F9;
-    }
-    
     .billsback{
-        background-color: rgb(158, 168, 185);
-        opacity: 0.1;
-        position:absolute;
-        width:225%;
-        left:0px;
-        top:0px;
-        height:250px;
-        background-position: center;
-        background-repeat: no-repeat;
-
-    }*/
+        top: 1000px;
+        left: 32%;
+        width: 64%;
+        height: 300px;
+    }
 }
 
