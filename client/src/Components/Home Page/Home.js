@@ -16,14 +16,14 @@ export default class Home extends Component {
             <div>
                 <Fade />
                 <div className = "moneyimg">
-                <img src = {money}  alt ="money"/>
+                <img className = "moneyy" src = {money}  alt ="money"/>
                     <h4 className = "money-text">Welcome to Money Manager where we help you effortlessly manage all your finances in one place. To get started,
             simply click the register button to sign up for a free account. </h4>
   
                 </div>
 
             <div className = "responsive">
-            
+
                 <div className = "budgetimg">
                 <img src = {budget}  alt ="Budget"/>
                 </div>
@@ -36,7 +36,7 @@ export default class Home extends Component {
                 <img src = {saving}  alt ="Saving"/>
                 </div>
 
-               
+               </div>
                 <div className = "encryptimg">
                 
                 <img src = {encrypt}  alt ="Encrypt"/>
@@ -47,14 +47,14 @@ export default class Home extends Component {
                 </div>
 
                 <div className ="billsimg">
-                    <img src = {bills} alt = "Bills"/>
+                    <img className = "billss" src = {bills} alt = "Bills"/>
                     <h3 className = "bills-text"> Stay on top of your bills </h3>
                     <h5 className = "bills-text1"> > See your bills and money in one place.<p><br/>> Receive custom suggestions to help save money. </p>
                     <p> > Current and past transactions shown to help compare your spendings</p></h5>
                 <div className = "billsback">
                 </div>
                 </div>
-                </div>
+           
 
 
             </div>
