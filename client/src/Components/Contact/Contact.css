@@ -1,0 +1,56 @@
+.format{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    text-decoration-line: none; 
+    opacity: 0;
+}
+.message{
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+.align{
+    position: absolute;
+    left: 2vw;
+    justify-content: center;
+    width: 300px;
+}
+.submitForm{
+    width: 140px;
+    height: 50px;
+    text-decoration-line: none;
+    background-color: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: solid;
+    border-radius: 10px;
+    padding: 1%;
+    font-family: 'Roboto Slab', serif;
+    font-size: 180%;
+    opacity: 0;
+}
+#name{
+    animation: vision 0.4s ease-in 0.8s 1 forwards;
+}
+#email{
+    animation: vision 0.4s ease-in 0.9s 1 forwards;
+}
+#subject{
+    animation: vision 0.4s ease-in 1.0s 1 forwards;
+}
+#message{
+    animation: vision 0.4s ease-in 1.1s 1 forwards;
+}
+#submit{
+    animation: vision 0.4s ease-in 1.2s 1 forwards;
+}
+@media only screen and (min-width: 768px) {
+    .align{
+        width: 300%;
+        left: 0%;
+    }
+}
