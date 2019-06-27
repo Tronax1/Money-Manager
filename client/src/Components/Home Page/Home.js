@@ -21,6 +21,9 @@ export default class Home extends Component {
             simply click the register button to sign up for a free account. </h4>
   
                 </div>
+
+            <div className = "responsive">
+            
                 <div className = "budgetimg">
                 <img src = {budget}  alt ="Budget"/>
                 </div>
@@ -51,7 +54,7 @@ export default class Home extends Component {
                 <div className = "billsback">
                 </div>
                 </div>
-
+                </div>
 
 
             </div>

@@ -4,11 +4,19 @@
    position: absolute;
 
 }
+
 img{
     width:100%;
     height:100%;
 }
 
+.responsive{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:300px;
+
+}
 .money-text{
     display:flex;
     position: absolute;
@@ -24,8 +32,6 @@ h4{
 }
 
 .budgetimg{
-    display:flex;
-    position:absolute;
     top:350px;
     left:50px;
     width:300px;
@@ -34,8 +40,6 @@ h4{
 }
 
 .spendingimg{
-    display:flex;
-    position:absolute;
     top:340px;
     left:370px;
     width:330px;
@@ -43,8 +47,6 @@ h4{
 }
 
 .savingimg{
-    display:flex;
-    position:absolute;
     top:345px;
     left:700px;
     width:330px;
@@ -52,8 +54,6 @@ h4{
 }
 
 .encryptimg{
-    display:flex;
-    position: absolute;
     top:700px;
     left:600px;
     width:400px;
@@ -63,7 +63,6 @@ h4{
     border-color:#0F70F9;
 }
 .encrypt-text{
-    display:flex;
     position: absolute;
     top:-10px;
     left:-470px;
@@ -93,7 +92,6 @@ h4{
 }
 
 .billsimg{
-    display:flex;
     position: absolute;
     top:1030px;
     left:100px;
@@ -133,4 +131,6 @@ h4{
     background-repeat: no-repeat;
 
 }
+
+
 
