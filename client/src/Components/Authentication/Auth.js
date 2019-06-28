@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import {connect} from "react-redux"
 
 import LoginPage from "../Login page/LoginPage"
-import UserPage from "../UserProfile/UserPage"
+import AfterLoginRouter from "../AfterLoginRouter/AfterLoginRouter"
 
 
 class Auth extends Component {
     render() {
         return(
             <div>
-            {this.props.auth ? ( <UserPage/> ) : ( <LoginPage /> )} 
+                {this.props.auth ? (<AfterLoginRouter /> ) : ( <LoginPage /> )} 
             </div>
         )
     }

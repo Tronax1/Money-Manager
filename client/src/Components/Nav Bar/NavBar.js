@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {NavLink} from "react-router-dom"
 import {connect} from 'react-redux'
 import DropDown from "./Drop Down/DropDown"
-import AfterLoginRouter from "../AfterLoginRouter/AfterLoginRouter"
 import "./NavBar.css"
 
  class NavBar extends Component {
@@ -36,7 +35,7 @@ import "./NavBar.css"
                 
                 <DropDown onClose={this.showMenu} show={this.state.show}/>
             </div>) :
-            (<AfterLoginRouter/>)
+            (<div/>)
             }
             </div>
         )
