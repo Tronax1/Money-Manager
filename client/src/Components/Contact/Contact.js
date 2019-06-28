@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Fade from "../Animations/Smooth Transitions/Fade"
+import axios from 'axios'
 
 import "./Contact.css"
 
@@ -16,16 +17,19 @@ export default class Contact extends Component {
             this.handleChange = this.handleChange.bind(this)
             this.handleSubmit = this.handleSubmit.bind(this)
         }
-            handleChange(e) {
+            handleChange = e => {
                 this.setState({
                     [e.target.name]: e.target.value})
             }
-            handleSubmit(e){
-                e.preventDefault();
+            async handleSubmit(){
                 const {name,email,subject,message} = this.state
+                const form = await axios.post('/api/form', {
+                    name,
+                    email,
+                    subject,
+                    message
+                })
             }
-
-
     render() {
         return (
             <div>
@@ -47,19 +51,19 @@ export default class Contact extends Component {
             <form onSubmit={this.handleSubmit} className="alignit">
                 <label>
                  <input type="text" id = "name"className="format" name = "name" 
-                 placeholder = "Full Name" onChange={this.handleChange}/>
+                 placeholder = "Full Name" onChange={this.handleChange} value={this.state.name}/>
                 </label>
                 <label>
-                 <input type="text" id = "email" className="format" name = "email"
-                 placeholder = "Email" onChange={this.handleChange}/>
+                 <input type="email" id = "email" className="format" name = "email"
+                 placeholder = "Email" onChange={this.handleChange} value={this.state.email}/>
                 </label>
                 <label>
                   <input type="text" id = "subject" className="format" name = "subject"
-                  placeholder = "Subject" onChange={this.handleChange}/>
+                  placeholder = "Subject" onChange={this.handleChange} value={this.state.subject}/>
                 </label>
                 <label>
                   <input type="textarea" id = "message" className="format message" name = "message" 
-                  placeholder= "Message..." onChange={this.handleChange}/>
+                  placeholder= "Message..." onChange={this.handleChange} value={this.state.message}/>
                 </label>
                 <label>
                   <button id ="submit" className="submitForm">Submit</button>
