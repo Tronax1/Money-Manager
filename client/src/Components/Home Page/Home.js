@@ -41,7 +41,7 @@ export default class Home extends Component {
                     <div className="Formatting-Flex">
                         <div>
                             <p className="encrypt-text"> Get started with our secure encryption </p>
-                            <p className="encrypt-text1">  It's easy to set up your free acount in seconds.<br />> We keep your information secure by encrypting your data with a 256-bit encryption.</p>
+                            <p className="encrypt-text1"> > It's easy to set up your free acount in seconds.<br/><br/>> We keep your information secure by encrypting your data with a 256-bit encryption.</p>
                         </div>
                         <div>
                             <img className="encryptimg" src={encrypt} alt="Encrypt" />
@@ -56,7 +56,7 @@ export default class Home extends Component {
                         <div>
                             <p className="bills-text"> Stay on top of your bills </p>
                             <p className="bills-text1"> > See your bills and money in one place.<br /><br /> > Receive custom suggestions to help save money. <br /><br/>
-                                 > Current and past transactions shown to help compare your spendings</p>
+                                 > Current and past transactions shown to help compare your spendings.</p>
                             <div className="billsback">
                             </div>
                         </div>
