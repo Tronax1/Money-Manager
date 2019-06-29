@@ -14,7 +14,6 @@ export default class TestPage extends Component {
     render(){
         return(
             <div>
-                <p><br /><br /><br />This is the Test page</p>
                 <Fade/>
                 <div>
                     <ExpenseForm onSubmit={fields => this.onSubmit(fields)}/>

@@ -86,7 +86,7 @@ export default class ExpenseForm extends Component {
                         />
                     </label>
                     <label>
-                        <button className="Expense-Button" onClick={e => this.onSubmit(e)}>Test</button>
+                        <button className="Expense-Button" onClick={e => this.onSubmit(e)}>Submit</button>
                     </label>
                 </form>
             </div>

@@ -1,0 +1,128 @@
+.Align{
+    display: flex;
+    flex-direction: row;
+    position:absolute;
+    justify-content: space-evenly;
+    margin-left:20px;
+    width:100%;
+    top:50px;
+
+}
+
+.Total{
+  position:absolute;
+  font-size:1rem;
+  font-weight:bold;
+  top:500px;
+  left:1000px;
+  width:500px;
+  
+}
+
+
+.Dash{
+  height: 90px;
+  background:rgb(10, 131, 36);
+  border: 2px solid;
+  width: 100%;
+  
+}
+
+.Dash-text{
+  font-size: 3rem;
+  font-weight: bold;
+  height: 80px;
+  margin-left:70px;
+}
+h3{
+  font-size:1.8rem;
+  font-weight:bold;
+}
+.donut1{
+  height:80px;
+
+}
+.donut1-text{
+  margin-top:50px;
+  margin-left: 200px;
+  width:100px;
+
+}
+.donut2{
+  height:80px;
+
+}
+
+.donut2-text{
+  margin-left:180px;
+  margin-top:50px;
+  width:100px;
+
+}
+
+.donutchart{
+  height: 300px;
+  width: 500px;
+}
+
+.donutchart-innertext-label {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  position: absolute;
+}
+
+.donutchart-innertext-value {
+  font-size: 36px;
+  font-weight: bold;
+
+}
+
+.donutchart-arcs-path, .donutchart-legend-item-rect {
+  fill-opacity: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-name: DrawLine, FillIn;
+
+  animation-delay: .5s, 2s;
+    animation-duration: 3s, 1s; 
+    stroke-dashArray: 1500;
+    stroke-dashoffset: 1500;
+}
+
+.donutchart-legend{
+  opacity:0;
+}
+.selected.donutchart-legend-item-label, .toggled.donutchart-legend-item-label {
+  opacity: 0;
+  fill: #960b01;
+}
+
+.donutchart-legend-item-rect{
+  opacity: 0;
+}
+
+@media only screen and (min-width: 768px){
+  .Align { width: 100%;}
+  .donutchart{width:100%;
+              height:300px;}
+  .donut1-text{width:100%;}
+  .donut2-text{width:100%;}
+  .Total{width:100px;}
+}
+
+  
+  @keyframes DrawLine {
+    to {
+        stroke-dashOffset: 0;
+    }
+}
+
+@keyframes FillIn {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        fill-opacity: 1;
+    }
+}

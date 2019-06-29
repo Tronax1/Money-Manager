@@ -6,9 +6,11 @@ import MortgagePage from '../MortgagePage/MortgagePage'
 import {connect} from 'react-redux'
 import {signOut} from "../../actions"
 import {withRouter} from 'react-router-dom'
+import Userhome from '../UserProfile/UserHome'
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from '@material-ui/icons/Home'
+import AssignmentIcon from '@material-ui/icons/Assignment'
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
 
 class AfterLoginRegistration extends Component{
@@ -35,8 +37,8 @@ class AfterLoginRegistration extends Component{
                             }}
                         >
                             <SideNav.Toggle />
-                            <SideNav.Nav defaultSelected="test">
-                                <NavItem eventKey="test">
+                            <SideNav.Nav defaultSelected="user">
+                                <NavItem eventKey="user">
                                     <NavIcon>
                                         <HomeIcon />
                                     </NavIcon>
@@ -44,6 +46,16 @@ class AfterLoginRegistration extends Component{
                                         Home
                                 </NavText>
                                 </NavItem>
+
+                                <NavItem eventKey = "test">
+                                    <NavIcon>
+                                        <AssignmentIcon/>
+                                    </NavIcon>
+                                    <NavText>
+                                    Expense Form
+                                    </NavText>
+                                    </NavItem>
+
                                 <NavItem eventKey="mortgage">
                                     <NavIcon>
                                         <AccountBalanceIcon />
@@ -58,6 +70,7 @@ class AfterLoginRegistration extends Component{
                             </SideNav.Nav>
                         </SideNav>
                         <main>
+                            <Route path ="/user" component={props=><Userhome/>}/>
                             <Route path="/test" component={props => <Test />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
                         </main>
