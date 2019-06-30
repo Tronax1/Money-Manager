@@ -1,0 +1,129 @@
+.body{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about-image{
+    background-image: url('./AboutImages/background1.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 300px;
+    z-index: -10;
+}
+
+.about-image2{
+    background-image: url('./AboutImages/background2.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    z-index: -10;
+    padding: 20px;
+}
+
+.mortgage-image{
+    background-image: url('./AboutImages/mortgage-image.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 150px;
+    width: 150px;
+    z-index: -10;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expense-image{
+    background-image: url('./AboutImages/expense-image.png');
+    background-size: cover;
+    background-position: center center;
+    height: 150px;
+    width: 150px;
+    z-index: -10;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.goals-image{
+    background-image: url('./AboutImages/goals-image.png');
+    background-size: cover;
+    background-position: center center;
+    height: 150px;
+    width: 150px;
+    z-index: -10;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-container{
+    margin: 70px;
+    padding: 20px;
+    display: inline-block;
+    width: 70%;
+    background: #61625d;
+    opacity: .8;
+}
+
+.vision-container{
+    padding: 70px;
+    display: inline-block;
+    width: 70%;
+    opacity: .5;
+}
+
+.services-container{
+    padding: 20px;
+    display: inline-block;
+    width: 70%;
+    background: #61625d;
+    opacity: .9;
+}
+
+.services-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+}
+
+.grid-item{
+    color: aliceblue;
+    padding: 5px;
+}
+
+about-h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+    color: aliceblue;
+}
+
+about-h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+}
+
+about-p {
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+}
+
+about-p1 {
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media only screen and (max-width: 768px){
+    .services-grid{
+        grid-template-columns: auto;
+    }
+    
+}
