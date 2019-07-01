@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DonutChart from 'react-donut-chart'
-
+import Savingscalc from './Savingscalc'
 import "./UserHome.css"
 
 export default class UserPage extends Component {
@@ -61,7 +61,6 @@ export default class UserPage extends Component {
                         <div className = "Total">
                         Total: ${this.state.total1 - this.state.total2}
                     </div>
-                    
                     
             </div>
         )

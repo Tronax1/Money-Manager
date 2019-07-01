@@ -7,11 +7,13 @@ import {connect} from 'react-redux'
 import {signOut} from "../../actions"
 import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
+import Savingscalc from '../UserProfile/Savingscalc'
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from '@material-ui/icons/Home'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
+import SavingsIcon from '@material-ui/icons/Mood'
 
 class AfterLoginRegistration extends Component{
     constructor(props){
@@ -65,6 +67,15 @@ class AfterLoginRegistration extends Component{
                                 </NavText>
                                 </NavItem>
 
+                                <NavItem eventKey="savingsCalc">
+                                    <NavIcon>
+                                        <SavingsIcon />
+                                    </NavIcon>
+                                    <NavText>
+                                        Savings Calculator
+                                </NavText>
+                                </NavItem>
+
                                 <button onClick={this.handleClick}>Logout</button>
 
                             </SideNav.Nav>
@@ -73,6 +84,7 @@ class AfterLoginRegistration extends Component{
                             <Route path ="/user" component={props=><Userhome/>}/>
                             <Route path="/test" component={props => <Test />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
+                            <Route path="/savingsCalc" component={props => <Savingscalc />} />
                         </main>
                     </React.Fragment>
                 )}
