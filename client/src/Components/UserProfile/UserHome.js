@@ -33,7 +33,7 @@ export default class UserPage extends Component {
               
               data = {[{
                     label: '$'+this.state.total1,
-                    value: this.state.total1                        
+                    value: this.state.total1,                       
               }, 
 
              ]}/>
@@ -47,11 +47,12 @@ export default class UserPage extends Component {
                     label: '$'+this.state.total2,
                     value: this.state.total2, 
                     
+                    
               },
               {
                 label: ' ',
                 value: this.state.total2 * 1.5,
-                isEmpty: true
+                isEmpty: true,
                 }
                 ]}/>
                   </div>
