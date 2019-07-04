@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {BrowserRouter, Route} from "react-router-dom"
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
-import Test from '../Test/Test'
+import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
 import {connect} from 'react-redux'
 import {signOut} from "../../actions"
@@ -93,7 +93,7 @@ class AfterLoginRegistration extends Component{
                         </SideNav>
                         <main>
                             <Route path ="/user" component={props=><Userhome/>}/>
-                            <Route path="/test" component={props => <Test />} />
+                            <Route path="/test" component={props => <TestPage />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
                             <Route path="/savingsCalc" component={props => <Savingscalc />} />
                             <Route path="/stock" component={props => <Stock />} />
