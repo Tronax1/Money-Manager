@@ -25,6 +25,7 @@ export default class ExpenseForm extends Component {
 
     handleSubmit(e){
         e.preventDefault();
+        this.props.addNote(this.state.Name, this.state.Amount, this.state.Notes);
         this.setState({
             Name: "",
             Amount: "",

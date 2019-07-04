@@ -9,12 +9,20 @@ import '../Expense form/ExpenseForm.css'
 export default class TestPage extends Component {
     constructor(props){
         super(props);
+        this.addExpense = this.addExpense.bind(this);
         this.state = {
             Expenses: [
                 {id: 1, name:'Kappa', ammount:'200', notes:'expense 1'},
                 {id: 2, name:'Pride', ammount:'123', notes:'expense 2'}
             ]
         }
+    }
+    addExpense(name, expense, note){
+        const previousNotes = this.state.Expenses;
+        previousNotes.push({id: previousNotes.length + 1, name: name, ammount: expense, notes: note});
+        this.setState({
+            Expenses: previousNotes
+        });
     }
     render(){
         return(
@@ -31,7 +39,7 @@ export default class TestPage extends Component {
                     }
                     
                 </div>
-                <ExpenseForm/>  
+                <ExpenseForm addNote={this.addExpense}/>  
             </div>
         )
     }
