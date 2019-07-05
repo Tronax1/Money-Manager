@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ExpenseForm from '../Expense form/ExpenseForm'
 import Fade from '../Animations/Smooth Transitions/Fade'
 import ExpenseNote from './ExpenseNote'
+import fire from '../../Config/Fire'
 
 import '../Expense form/ExpenseForm.css'
 
@@ -10,19 +11,31 @@ export default class TestPage extends Component {
     constructor(props){
         super(props);
         this.addExpense = this.addExpense.bind(this);
+        this.db = fire.database().ref().child('Expenses');
         this.state = {
-            Expenses: [
-                {id: 1, name:'Kappa', ammount:'200', notes:'expense 1'},
-                {id: 2, name:'Pride', ammount:'123', notes:'expense 2'}
-            ]
+            Expenses: []
         }
     }
+    componentWillMount(){
+        const previousNote = this.state.Expenses;
+        this.db.on('child_added', snap=>{
+            previousNote.push({
+                id: snap.key,
+                name: snap.val().name,
+                ammount: snap.val().ammount,
+                notes: snap.val().notes
+            })
+            this.setState({
+                Expenses: previousNote
+            })
+        })
+    }
     addExpense(name, expense, note){
-        const previousNotes = this.state.Expenses;
-        previousNotes.push({id: previousNotes.length + 1, name: name, ammount: expense, notes: note});
-        this.setState({
-            Expenses: previousNotes
-        });
+        this.db.push().set({
+            name: name,
+            ammount: expense,
+            notes: note
+        })
     }
     render(){
         return(
