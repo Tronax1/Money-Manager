@@ -6,7 +6,7 @@ import ExpenseNote from './ExpenseNote'
 import Modal from './Modal/Modal'
 import fire from '../../Config/Fire'
 
-import '../Expense form/ExpenseForm.css'
+import './Test.css'
 
 export default class TestPage extends Component {
     constructor(props){
@@ -78,7 +78,9 @@ export default class TestPage extends Component {
                             )
                         })
                     }
-                    <button onClick={this.showModal}>Display Form</button>
+                    <button className="Add-Expense" onClick={this.showModal}>
+                        <i class="fas fa-plus"></i>
+                        </button>
                 </div>
                 <Modal addNote={this.addExpense} onClose={this.showModal} show={this.state.show}/>
             </div>
