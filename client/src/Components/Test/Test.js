@@ -11,6 +11,7 @@ export default class TestPage extends Component {
     constructor(props){
         super(props);
         this.addExpense = this.addExpense.bind(this);
+        this.removeExpense = this.removeExpense.bind(this);
         this.db = fire.database().ref().child('Expenses');
         this.state = {
             Expenses: []
@@ -29,6 +30,16 @@ export default class TestPage extends Component {
                 Expenses: previousNote
             })
         })
+        this.db.on('child_removed', snap=>{
+            for(var i = 0; i < previousNote.length; i++){
+                if(previousNote[i].id == snap.key){
+                    previousNote.splice(i, 1);
+                }
+            }
+            this.setState({
+                Expenses: previousNote
+            })
+        })
     }
     addExpense(name, expense, note){
         this.db.push().set({
@@ -36,6 +47,9 @@ export default class TestPage extends Component {
             ammount: expense,
             notes: note
         })
+    }
+    removeExpense(noteId){
+        this.db.child(noteId).remove();
     }
     render(){
         return(
@@ -45,8 +59,12 @@ export default class TestPage extends Component {
                     {
                         this.state.Expenses.map(note => {
                             return(
-                                <ExpenseNote noteId={note.id} noteName={note.name} noteNotes={note.notes}
-                                noteAmmount={note.ammount}key={note.id}/>
+                                <ExpenseNote noteId={note.id} 
+                                noteName={note.name} 
+                                noteNotes={note.notes}
+                                noteAmmount={note.ammount}
+                                key={note.id} 
+                                removeExpense={this.removeExpense}/>
                             )
                         })
                     }
