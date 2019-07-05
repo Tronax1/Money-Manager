@@ -12,7 +12,9 @@ export default class TestPage extends Component {
         super(props);
         this.addExpense = this.addExpense.bind(this);
         this.removeExpense = this.removeExpense.bind(this);
-        this.db = fire.database().ref().child('Expenses');
+        //this.db = fire.database().ref().child('Expenses');
+        this.userKey = fire.auth().currentUser.uid
+        this.db = fire.database().ref().child('Users').child(this.userKey).child('Expenses');
         this.state = {
             Expenses: []
         }
