@@ -33,6 +33,7 @@ export default class ExpenseForm extends Component {
             Type: "",
             Notes: ""
         })
+        this.props.close(e);
     }
 
     render() {

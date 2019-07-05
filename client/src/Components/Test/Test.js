@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ExpenseForm from '../Expense form/ExpenseForm'
 import Fade from '../Animations/Smooth Transitions/Fade'
 import ExpenseNote from './ExpenseNote'
+import Modal from './Modal/Modal'
 import fire from '../../Config/Fire'
 
 import '../Expense form/ExpenseForm.css'
@@ -12,11 +13,13 @@ export default class TestPage extends Component {
         super(props);
         this.addExpense = this.addExpense.bind(this);
         this.removeExpense = this.removeExpense.bind(this);
+        this.showModal = this.showModal.bind(this);
         //this.db = fire.database().ref().child('Expenses');
         this.userKey = fire.auth().currentUser.uid
         this.db = fire.database().ref().child('Users').child(this.userKey).child('Expenses');
         this.state = {
-            Expenses: []
+            Expenses: [],
+            show: false
         }
     }
     componentWillMount(){
@@ -42,6 +45,11 @@ export default class TestPage extends Component {
                 Expenses: previousNote
             })
         })
+    }
+    showModal(){
+        this.setState({
+            show: !this.state.show
+        });
     }
     addExpense(name, expense, note){
         this.db.push().set({
@@ -70,9 +78,9 @@ export default class TestPage extends Component {
                             )
                         })
                     }
-                    
+                    <button onClick={this.showModal}>Display Form</button>
                 </div>
-                <ExpenseForm addNote={this.addExpense}/>  
+                <Modal addNote={this.addExpense} onClose={this.showModal} show={this.state.show}/>
             </div>
         )
     }
