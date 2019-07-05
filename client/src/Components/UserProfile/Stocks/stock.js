@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import axios from 'axios';
+import Fade from '../../Animations/Smooth Transitions/Fade'
 
 import SearchBar from './SearchBar';
 import StockList from './StockList';
@@ -56,6 +57,7 @@ handleChange(e) {
 
     return (
       <div>
+        <Fade/>
         <SearchBar value={ value }
                    onChange={ this.handleChange }
                    onClick={ this.handleClick }/>

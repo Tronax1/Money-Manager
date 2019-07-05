@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DonutChart from 'react-donut-chart'
 import Savingscalc from './Savingscalc'
+import Fade from '../Animations/Smooth Transitions/Fade'
 import "./UserHome.css"
 
 export default class UserPage extends Component {
@@ -14,8 +15,8 @@ export default class UserPage extends Component {
     render() {
         return (
             <div>   
-        
-
+               
+                <Fade />
                  <div className = "Dash">
                     <h2 className = "Dash-text">Dashboard </h2>
 
