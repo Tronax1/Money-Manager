@@ -21,6 +21,7 @@ export default class MortgagePage extends Component {
     render(){
         return(
             <div>
+                <Fade/>
                 <div>
                     <MortgageForm onSubmit={fields => this.onSubmit(fields)}/>
                 </div>

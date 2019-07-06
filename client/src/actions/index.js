@@ -27,8 +27,13 @@ export const signIn = (user, pass) => dispatch => {
 };
 
 export const signUp = (user, pass) => dispatch =>{
+    let ref = fire.database().ref().child('Users')
     fire.auth().createUserWithEmailAndPassword(user, pass).then(data=>{
         console.log(data);
+        ref.push().set({
+            user: user,
+            password: pass
+        })
     }).catch(err=>{
         console.log("error in this shit");
     });

@@ -1,0 +1,16 @@
+.Add-Expense{
+    border-radius: 50%;
+    margin-left: 20%;
+    background-color: rgb(67, 207, 72);
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 10px 8px;
+}
+.Add-Expense:hover{
+    background-color: red;
+}

@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import { render } from "react-dom";
+import Fade from '../Animations/Smooth Transitions/Fade'
 import "./Savingscalc.css";
 
 export default class UserPage extends Component {
@@ -24,6 +25,7 @@ export default class UserPage extends Component {
   render() {
     return (
       <div>
+        <Fade/>
         <div className = "backgroundpage"></div>
 
         
