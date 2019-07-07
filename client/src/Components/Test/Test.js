@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 
-import ExpenseForm from '../Expense form/ExpenseForm'
 import Fade from '../Animations/Smooth Transitions/Fade'
 import ExpenseNote from './ExpenseNote'
 import Modal from './Modal/Modal'
-import fire from '../../Config/Fire'
+import {connect} from 'react-redux'
+import {addExpenseDatabase, removeExpenseDatabase} from '../../actions' 
 
 import './Test.css'
 
-export default class TestPage extends Component {
+class TestPage extends Component {
     constructor(props){
         super(props);
         this.addExpense = this.addExpense.bind(this);
         this.removeExpense = this.removeExpense.bind(this);
         this.showModal = this.showModal.bind(this);
         //this.db = fire.database().ref().child('Expenses');
-        this.userKey = fire.auth().currentUser.uid
-        this.db = fire.database().ref().child('Users').child(this.userKey).child('Expenses');
+       // this.userKey = fire.auth().currentUser.uid
+        //this.db = fire.database().ref().child('Users').child(this.userKey).child('Expenses');
         this.state = {
             Expenses: [],
             show: false
@@ -24,7 +24,8 @@ export default class TestPage extends Component {
     }
     componentWillMount(){
         const previousNote = this.state.Expenses;
-        this.db.on('child_added', snap=>{
+        previousNote.push(this.props.Expense);
+        /*this.db.on('child_added', snap=>{
             previousNote.push({
                 id: snap.key,
                 name: snap.val().name,
@@ -44,7 +45,7 @@ export default class TestPage extends Component {
             this.setState({
                 Expenses: previousNote
             })
-        })
+        })*/
     }
     showModal(){
         this.setState({
@@ -52,14 +53,16 @@ export default class TestPage extends Component {
         });
     }
     addExpense(name, expense, note){
-        this.db.push().set({
+        /*this.db.push().set({
             name: name,
             ammount: expense,
             notes: note
-        })
+        })*/
+        this.props.addExpenseDatabase(name, expense, note);
     }
     removeExpense(noteId){
-        this.db.child(noteId).remove();
+        //this.db.child(noteId).remove();
+        this.props.removeExpenseDatabase(noteId);
     }
     render(){
         return(
@@ -87,3 +90,9 @@ export default class TestPage extends Component {
         )
     }
 }
+
+function mapStatetoProps({Expense}){
+    return {Expense};
+}
+
+export default connect(mapStatetoProps, {addExpenseDatabase, removeExpenseDatabase})(TestPage)
