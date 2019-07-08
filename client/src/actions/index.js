@@ -29,10 +29,7 @@ export const fetchData = () =>  dispatch => {
             notes: snap.val().notes,
             date: snap.val().date
         })
-        dispatch({
-            type: FETCH_DATA,
-            payload: allExpenses
-        })
+        
     })
     database.on('child_removed', snap=>{
         console.log("You are deleting me");
@@ -41,12 +38,11 @@ export const fetchData = () =>  dispatch => {
                 allExpenses.splice(i, 1);
             }
         }
-        dispatch({
-            type: FETCH_DATA,
-            payload: allExpenses
-        })
     })
-    
+    dispatch({
+        type: FETCH_DATA,
+        payload: allExpenses
+    })
 };
 
 export const addExpenseDatabase = (name, expense, date, note) => dispatch=>{

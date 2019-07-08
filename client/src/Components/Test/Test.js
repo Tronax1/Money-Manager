@@ -31,6 +31,9 @@ class TestPage extends Component {
             })
         }
     }
+    componentWillUnmount(){
+        console.log('I died')
+    }
     showModal(){
         this.setState({
             show: !this.state.show
