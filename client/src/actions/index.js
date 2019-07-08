@@ -1,5 +1,5 @@
 import fire from "../Config/Fire";
-import {FETCH_USER} from "./types"
+import {FETCH_USER, FETCH_DATA} from "./types"
 
 export const fetchUser = () => dispatch => {
     fire.auth().onAuthStateChanged(user => {
@@ -16,6 +16,53 @@ export const fetchUser = () => dispatch => {
         }
     });
 };
+
+export const fetchData = () =>  dispatch => {
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
+    let allExpenses = [];
+    database.on('child_added', snap=>{
+        allExpenses.push({
+            id: snap.key,
+            name: snap.val().name,
+            ammount: snap.val().ammount,
+            notes: snap.val().notes
+        })
+        dispatch({
+            type: FETCH_DATA,
+            payload: allExpenses
+        })
+    })
+    database.on('child_removed', snap=>{
+        console.log("You are deleting me");
+        for(let i =0; i< allExpenses.length; i++){
+            if (allExpenses[i].id == snap.key){
+                allExpenses.splice(i, 1);
+            }
+        }
+        dispatch({
+            type: FETCH_DATA,
+            payload: allExpenses
+        })
+    })
+    
+};
+
+export const addExpenseDatabase = (name, expense, note) => dispatch=>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
+    database.push().set({
+        name: name,
+        ammount: expense,
+        notes: note
+    })
+};
+
+export const removeExpenseDatabase = (noteId) => dispatch=>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
+    database.child(noteId).remove();
+}
 
 export const signIn = (user, pass) => dispatch => {
     fire.auth().signInWithEmailAndPassword(user, pass).then(data=>{
