@@ -20,9 +20,16 @@ class TestPage extends Component {
         }
     }
     componentDidMount(){
-        this.setState({
-            Expenses: this.props.Expense
-        })
+        if(this.props.Expense){
+            this.setState({
+                Expenses: this.props.Expense
+            })
+        }
+        else{
+            this.setState({
+                Expenses: []
+            })
+        }
     }
     showModal(){
         this.setState({
