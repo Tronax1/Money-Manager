@@ -19,6 +19,11 @@ class TestPage extends Component {
             show: false
         }
     }
+    componentDidMount(){
+        this.setState({
+            Expenses: this.props.Expense
+        })
+    }
     showModal(){
         this.setState({
             show: !this.state.show
@@ -26,24 +31,30 @@ class TestPage extends Component {
     }
     addExpense(name, expense, note){
         this.props.addExpenseDatabase(name, expense, note);
+        this.setState({
+            Expenses: this.props.Expense
+        })
     }
     removeExpense(noteId){
         this.props.removeExpenseDatabase(noteId);
+        this.setState({
+            Expenses: this.props.Expense
+        })
     }
     render(){
-        const postItems = this.props.Expense.map(note => (
-            <ExpenseNote noteId={note.id}
-                noteName={note.name}
-                noteNotes={note.notes}
-                noteAmmount={note.ammount}
-                key={note.id}
-                removeExpense={this.removeExpense} />
-        ))
             return (
                 <div>
                     <Fade />
                     <div>
-                        {postItems}
+                        {this.state.Expenses.map(note => (
+                            <ExpenseNote noteId={note.id}
+                                noteName={note.name}
+                                noteNotes={note.notes}
+                                noteAmmount={note.ammount}
+                                key={note.id}
+                                removeExpense={this.removeExpense} />
+                            ))
+                        }
                         <button className="Add-Expense" onClick={this.showModal}>
                             <i className="fas fa-plus"></i>
                         </button>

@@ -34,6 +34,7 @@ export const fetchData = () =>  dispatch => {
         })
     })
     database.on('child_removed', snap=>{
+        console.log("You are deleting me");
         for(let i =0; i< allExpenses.length; i++){
             if (allExpenses[i].id == snap.key){
                 allExpenses.splice(i, 1);
