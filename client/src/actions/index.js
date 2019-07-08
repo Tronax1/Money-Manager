@@ -17,7 +17,7 @@ export const fetchUser = () => dispatch => {
     });
 };
 
-export const fetchData = () => dispatch => {
+export const fetchData = () => async dispatch => {
     let userKey = fire.auth().currentUser.uid;
     let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
     database.on('child_added', snap=>{
