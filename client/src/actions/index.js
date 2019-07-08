@@ -26,7 +26,8 @@ export const fetchData = () =>  dispatch => {
             id: snap.key,
             name: snap.val().name,
             ammount: snap.val().ammount,
-            notes: snap.val().notes
+            notes: snap.val().notes,
+            date: snap.val().date
         })
         dispatch({
             type: FETCH_DATA,
@@ -48,13 +49,14 @@ export const fetchData = () =>  dispatch => {
     
 };
 
-export const addExpenseDatabase = (name, expense, note) => dispatch=>{
+export const addExpenseDatabase = (name, expense, date, note) => dispatch=>{
     let userKey = fire.auth().currentUser.uid;
     let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
     database.push().set({
         name: name,
         ammount: expense,
-        notes: note
+        notes: note,
+        date: date
     })
 };
 

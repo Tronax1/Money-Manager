@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import NumberFormat from 'react-number-format'
 import "./ExpenseForm.css"
 
 
@@ -25,7 +25,7 @@ export default class ExpenseForm extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.addNote(this.state.Name, this.state.Amount, this.state.Notes);
+        this.props.addNote(this.state.Name, this.state.Amount, this.state.Date, this.state.Notes);
         this.setState({
             Name: "",
             Amount: "",
@@ -51,18 +51,21 @@ export default class ExpenseForm extends Component {
                         />
                     </label>
                     <label>
-                        <input 
-                            type="text" 
-                            className="Text-box" 
-                            name="Amount"
-                            placeholder="Amount"
+                        <NumberFormat
+                            prefix={'$'}
+                            className="Text-box"
+                            placeholder="Value"
+                            thousandSeparator={true}
                             value={this.state.Amount}
-                            onChange={this.handleChange}
+                            onValueChange={(values) => {
+                                const { formattedValue, value } = values;
+                                this.setState({ Amount: value })
+                            }}
                         />
                     </label>
                     <label>
                         <input 
-                            type="text" 
+                            type="date" 
                             className="Text-box" 
                             name="Date"
                             placeholder="Date"

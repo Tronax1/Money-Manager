@@ -15,8 +15,9 @@ export default class ExpenseNote extends Component {
             <div className="center-flex">
                 <div className="Note-background">
                     <span>{this.props.noteName}</span>
-                    <span>{this.props.noteAmmount}</span>
+                    <span>${this.props.noteAmmount}</span>
                     <span>{this.props.noteNotes}</span>
+                    <span>{this.props.noteDate}</span>
                     <span className="Close-button" 
                     onClick={()=>this.handleRemoveExpense(this.props.noteId)}>&times;</span>
                 </div>

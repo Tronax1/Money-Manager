@@ -29,8 +29,8 @@ class TestPage extends Component {
             show: !this.state.show
         });
     }
-    addExpense(name, expense, note){
-        this.props.addExpenseDatabase(name, expense, note);
+    addExpense(name, expense, date ,note){
+        this.props.addExpenseDatabase(name, expense, date , note);
         this.setState({
             Expenses: this.props.Expense
         })
@@ -51,6 +51,7 @@ class TestPage extends Component {
                                 noteName={note.name}
                                 noteNotes={note.notes}
                                 noteAmmount={note.ammount}
+                                noteDate={note.date}
                                 key={note.id}
                                 removeExpense={this.removeExpense} />
                             ))
