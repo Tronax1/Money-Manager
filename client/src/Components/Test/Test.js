@@ -13,20 +13,11 @@ class TestPage extends Component {
         super(props);
         this.addExpense = this.addExpense.bind(this);
         this.removeExpense = this.removeExpense.bind(this);
-        this.renderExpenses = this.renderExpenses.bind(this);
         this.showModal = this.showModal.bind(this);
         this.state = {
             Expenses: [],
             show: false
         }
-    }
-    componentDidMount(){
-        this.props.fetchData();
-        const previousNotes = this.state.Expenses;
-        previousNotes.push(this.props.Expense);
-        this.setState({
-            Expenses: previousNotes
-        })
     }
     showModal(){
         this.setState({
@@ -39,32 +30,28 @@ class TestPage extends Component {
     removeExpense(noteId){
         this.props.removeExpenseDatabase(noteId);
     }
-    renderExpenses(){
-        console.log(this.state.Expenses);
-            //this.state.Expenses.map(note => {
-              //  return <ExpenseNote noteId={note.id}
-              //      noteName={note.name}
-              //      noteNotes={note.notes}
-              ///      noteAmmount={note.ammount}
-              //      key={note.id}
-                //    removeExpense={this.removeExpense} />
-          //  });
-       // }
-    }
     render(){
-        
-        return(
-            <div>
-                <Fade/>
+        const postItems = this.props.Expense.map(note => (
+            <ExpenseNote noteId={note.id}
+                noteName={note.name}
+                noteNotes={note.notes}
+                noteAmmount={note.ammount}
+                key={note.id}
+                removeExpense={this.removeExpense} />
+        ))
+            return (
                 <div>
-                    {this.renderExpenses()}
-                    <button className="Add-Expense" onClick={this.showModal}>
-                        <i className="fas fa-plus"></i>
+                    <Fade />
+                    <div>
+                        {postItems}
+                        <button className="Add-Expense" onClick={this.showModal}>
+                            <i className="fas fa-plus"></i>
                         </button>
+                    </div>
+                    <Modal addNote={this.addExpense} onClose={this.showModal} show={this.state.show} />
                 </div>
-                <Modal addNote={this.addExpense} onClose={this.showModal} show={this.state.show}/>
-            </div>
-        )
+            )
+        
     }
 }
 

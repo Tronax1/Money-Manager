@@ -17,20 +17,34 @@ export const fetchUser = () => dispatch => {
     });
 };
 
-export const fetchData = () => async dispatch => {
+export const fetchData = () =>  dispatch => {
     let userKey = fire.auth().currentUser.uid;
     let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
+    let allExpenses = [];
     database.on('child_added', snap=>{
+        allExpenses.push({
+            id: snap.key,
+            name: snap.val().name,
+            ammount: snap.val().ammount,
+            notes: snap.val().notes
+        })
         dispatch({
             type: FETCH_DATA,
-            payload:{
-                id: snap.key,
-                name: snap.val().name,
-                ammount: snap.val().ammount,
-                notes: snap.val().notes
-            }
+            payload: allExpenses
         })
     })
+    database.on('child_removed', snap=>{
+        for(let i =0; i< allExpenses.length; i++){
+            if (allExpenses[i].id == snap.key){
+                allExpenses.splice(i, 1);
+            }
+        }
+        dispatch({
+            type: FETCH_DATA,
+            payload: allExpenses
+        })
+    })
+    
 };
 
 export const addExpenseDatabase = (name, expense, note) => dispatch=>{

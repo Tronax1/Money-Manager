@@ -4,7 +4,7 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
 import {connect} from 'react-redux'
-import {signOut} from "../../actions"
+import {signOut, fetchData} from "../../actions"
 import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'
@@ -21,6 +21,9 @@ class AfterLoginRegistration extends Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+    }
+    componentDidMount(){
+        this.props.fetchData();
     }
     handleClick(){
         this.props.signOut();
@@ -105,4 +108,4 @@ class AfterLoginRegistration extends Component{
     }
 }
 
-export default connect(null, {signOut})(withRouter(AfterLoginRegistration));
+export default connect(null, {signOut, fetchData})(withRouter(AfterLoginRegistration));
