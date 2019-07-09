@@ -1,20 +1,62 @@
 .mortgage-body{
-    margin-left: 100px;
-    margin-top: 70px;
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
 }
 
 .mortgage-form{
+    display: flex;
+    flex-direction: column;
     border: solid;
     border-color: #d2d7dc;
-    border-width: 1px;
+    border-width: 2px;
     padding: 10px;
-    width: fit-content;
+    width: 70%;
+    justify-content: center;
+}
+
+.mortgage-result{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+
+.mortgage-result-data{
+    display: flex;
+    padding-top: 30px;
 }
 
 .amortization-schedule{
-    border: solid;
-    border-color: #d2d7dc;
-    border-width: 1px;
-    padding: 10px;
-    width: fit-content;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.home-image{
+    background-image: url('./MortgagePageImages/home.png');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    z-index: -10;
+    margin-top: 200px;
+}
+
+@media only screen and (max-width: 1150px){
+    .amortization-schedule{
+        display: none;
+    }
+
+    .mortgage-result{
+        flex-direction: column;
+    }
+
+    .mortgage-result-data{
+        padding-top: 30px;
+    }
 }
