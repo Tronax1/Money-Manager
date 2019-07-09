@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MortgageForm from '../Mortgage Form/MortgageForm'
+import MortgageResult from './MortgageResult/MortgageResult'
 import Fade from '../Animations/Smooth Transitions/Fade'
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -12,12 +13,19 @@ let monthlyAmortizationData = []
 
 export default class MortgagePage extends Component {
 
-    state = {
-        flag: false,
+    constructor(props){
+        super(props);
+        this.state = {
+            flag: false,
+            mortgage: "0",
+            loanLength: "0",
+        }
     }
 
     onSubmit = (fields) => {
-        fillAmortizationData(fields);
+        var info = fillAmortizationData(fields);
+        this.setState({mortgage: info[0].toFixed(2)});
+        this.setState({loanLength: info[1]});
         this.setState({flag: true});
     }
 
@@ -26,7 +34,13 @@ export default class MortgagePage extends Component {
             <div className="mortgage-body">
                 <Fade/>
                 <div className='mortgage-form'>
-                    <MortgageForm onSubmit={fields => this.onSubmit(fields)}/>
+                    <div className="mortgage-result">
+                        <MortgageForm onSubmit={fields => this.onSubmit(fields)}/>
+                        <div className="mortgage-result-data">
+                            <div className="home-image"/>
+                            <MortgageResult mortgage={this.state.mortgage} loanLength={this.state.loanLength} />
+                        </div>
+                    </div>
                     {this.state.flag ? showAmortizationSchedule() : null}
                 </div>
             </div>
@@ -48,7 +62,6 @@ function fillAmortizationData(fields){
     var r = interest/100/12;
     var n = loanLength*12;
     var mortgage = (principal * r*(1+r)**n/((1+r)**n-1));
-    console.log(mortgage);
 
     var remainingPrincipal = principal;
     var monthlyInterestPayment;
@@ -77,12 +90,14 @@ function fillAmortizationData(fields){
         monthlyAmortizationData.push({name: 'Month '+i, Payment: mortgage.toFixed(2), Remaining: remainingPrincipal.toFixed(2), Principal: totalPrincipalPaid.toFixed(2), Interest: totalInterestPaid.toFixed(2)});
     }
     console.log(monthlyAmortizationData);
+    var info = [mortgage,loanLength];
+    return info;
 }
 
 function showAmortizationSchedule(){
     return(
         <div className = "amortization-schedule">
-            <LineChart width={600} height={300} data={amortizationData}>
+            <LineChart width={800} height={300} data={amortizationData}>
                 <XAxis dataKey="name"/>
                 <YAxis/>
                 <CartesianGrid strokeDasharray="3 3"/>
@@ -91,8 +106,9 @@ function showAmortizationSchedule(){
                 <Line type="monotone" dataKey="Remaining" stroke="#8884d8" activeDot={{r: 5}}/>
                 <Line type="monotone" dataKey="Principal" stroke="#82ca9d" />
                 <Line type="monotone" dataKey="Interest" stroke="#f8bb32" />
-                
             </LineChart>
         </div>
     )
 }
+
+

@@ -28,6 +28,12 @@
     align-content: center;
 
 }
+
+.mortgage-form-p{
+    font-size: 5px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 *:focus{
     outline: none;
 }
