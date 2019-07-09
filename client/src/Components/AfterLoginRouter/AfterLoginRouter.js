@@ -9,6 +9,7 @@ import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'
 import Stock from '../UserProfile/Stocks/stock'
+import {Redirect} from "react-router"
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from '@material-ui/icons/Home'
@@ -28,6 +29,7 @@ class AfterLoginRegistration extends Component{
     handleClick(){
         this.props.signOut();
         this.props.history.push('/Login');
+        window.location.reload();
     }
     render(){
         return (
@@ -108,4 +110,4 @@ class AfterLoginRegistration extends Component{
     }
 }
 
-export default connect(null, {signOut, fetchData})(withRouter(AfterLoginRegistration));
+export default withRouter(connect(null, {signOut, fetchData})(AfterLoginRegistration));
