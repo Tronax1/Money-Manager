@@ -36,7 +36,8 @@ import "./NavBar.css"
                 
                 <DropDown onClose={this.showMenu} show={this.state.show}/>
             </div>) :
-            (<AfterLoginRouter/>)
+            <div/>
+            //(<AfterLoginRouter/>)
             }
             </div>
         )

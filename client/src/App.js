@@ -9,6 +9,7 @@ import Contact from "./Components/Contact/Contact"
 import NavBar from "./Components/Nav Bar/NavBar"
 import Auth from "./Components/Authentication/Auth"
 import RegisterPage from "./Components/Register Page/RegisterPage"
+import AfterLoginRouter from "./Components/AfterLoginRouter/AfterLoginRouter"
  
 class App extends Component {
   componentDidMount(){
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/Contact" component={Contact} />
           <Route path="/Login" component={Auth} />
           <Route path="/Register" component={RegisterPage} />
+          <Route path="/user" component={AfterLoginRouter}/>
         </Switch>
       </BrowserRouter>
     );}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter, Route} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
@@ -24,14 +24,17 @@ class AfterLoginRegistration extends Component{
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount(){
-        this.props.fetchData();
+        if(this.props.auth){
+            this.props.fetchData();
+        }
     }
     handleClick(){
         this.props.signOut();
-        this.props.history.push('/Login');
-        window.location.reload();
     }
     render(){
+        if(!this.props.auth){
+            return(<Redirect to="/Login"/>)
+        }
         return (
             <BrowserRouter>
                 <Route render={({ location, history }) => (
@@ -96,11 +99,13 @@ class AfterLoginRegistration extends Component{
                             </SideNav.Nav>
                         </SideNav>
                         <main>
+                            <Switch>
                             <Route path ="/user" component={props=><Userhome/>}/>
                             <Route path="/test" component={props => <TestPage />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
                             <Route path="/savingsCalc" component={props => <Savingscalc />} />
                             <Route path="/stock" component={props => <Stock />} />
+                            </Switch>
                         </main>
                     </React.Fragment>
                 )}
@@ -110,4 +115,8 @@ class AfterLoginRegistration extends Component{
     }
 }
 
-export default withRouter(connect(null, {signOut, fetchData})(AfterLoginRegistration));
+function mapStatetoProps({auth}){
+    return {auth};
+}
+
+export default withRouter(connect(mapStatetoProps, {signOut, fetchData})(AfterLoginRegistration));
