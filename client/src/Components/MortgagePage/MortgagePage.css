@@ -1,0 +1,20 @@
+.mortgage-body{
+    margin-left: 100px;
+    margin-top: 70px;
+}
+
+.mortgage-form{
+    border: solid;
+    border-color: #d2d7dc;
+    border-width: 1px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.amortization-schedule{
+    border: solid;
+    border-color: #d2d7dc;
+    border-width: 1px;
+    padding: 10px;
+    width: fit-content;
+}
