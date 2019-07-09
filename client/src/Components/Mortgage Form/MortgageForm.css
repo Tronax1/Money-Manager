@@ -1,10 +1,7 @@
 .mAlignment{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 200px;
     justify-content: space-evenly;
-    left: 20vw;
     width: 60%;
 }
 .mText-box{

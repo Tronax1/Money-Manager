@@ -2,8 +2,31 @@
 display:flex;
 justify-content:center;
 position:absolute;
-top:200px;
-left:200px;
+flex-direction: column;
+top:100px;
+left:100px;
 }
 
+.calctitle{
+    text-align: center;  
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color:rgb(5, 168, 27);
+}
 
+.calctext{
+   text-align:center;
+   margin-top:200px;
+   size: 1rem;
+   color:rgba(5, 168, 27, 0.829);
+
+}
+
+.backgroundpage{
+background-image: url('../UserProfile/calcImage.jpg');
+background-size: cover;
+background-position:center;
+position: relative;
+height: 635px;
+width:100%;
+}

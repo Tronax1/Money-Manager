@@ -21,12 +21,6 @@ export default class MortgageForm extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.state); 
-        this.setState({
-            HomePrice: "",
-            DownPayment: "",
-            InterestRate: "",
-            LoanLength: ""
-        })
     }
 
     render() {

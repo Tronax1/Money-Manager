@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import { render } from "react-dom";
+import Fade from '../Animations/Smooth Transitions/Fade'
 import "./Savingscalc.css";
 
 export default class UserPage extends Component {
@@ -24,7 +25,13 @@ export default class UserPage extends Component {
   render() {
     return (
       <div>
+        <Fade/>
+        <div className = "backgroundpage"></div>
+
+        
           <div className = "calc">
+          <h1 className = "calctitle">Savings Calculator</h1>
+          <h3 className = "calctext">Input any amount of money you wish to save per year and hit the calculate button to see how much you need to save each month to reach your goal.</h3>
         <input
           placeholder="$ to save in a year"
           value={this.state.inputValue}
@@ -34,6 +41,7 @@ export default class UserPage extends Component {
         <button onClick={this.calculate}>Calculate</button>
         </div>
       </div>
+
     );
   }
 }

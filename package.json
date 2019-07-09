@@ -29,7 +29,8 @@
     "react": "^16.8.6",
     "react-number-format": "^4.0.8",
     "react-router-dom": "^5.0.1",
-    "react-simple-sidenav": "^1.0.1"
+    "react-simple-sidenav": "^1.0.1",
+    "recharts": "^1.6.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
