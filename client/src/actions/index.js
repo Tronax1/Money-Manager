@@ -1,5 +1,5 @@
 import fire from "../Config/Fire";
-import {FETCH_USER, FETCH_DATA} from "./types"
+import {FETCH_USER, FETCH_DATA, FETCH_PREMIUM} from "./types"
 
 export const fetchUser = () => dispatch => {
     fire.auth().onAuthStateChanged(user => {
@@ -44,6 +44,27 @@ export const fetchData = () =>  dispatch => {
     })
 };
 
+export const fetchPremium = () => dispatch =>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Premium');
+    let Premium = [];
+    database.on('child_added', snap=>{
+        Premium.push({
+            Premium: snap.val().Premium
+        })
+    })
+    database.on('child_removed', snap=>{
+        for(let i =0; i< Premium.length; i++){
+            if (Premium[i].id == snap.key){
+                Premium.splice(i, 1);
+            }
+        }
+    })
+    dispatch({
+        type: FETCH_PREMIUM,
+        payload: Premium
+    })
+}
 export const addExpenseDatabase = (name, expense, date, note) => dispatch=>{
     let userKey = fire.auth().currentUser.uid;
     let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
@@ -54,6 +75,13 @@ export const addExpenseDatabase = (name, expense, date, note) => dispatch=>{
         date: date
     })
 };
+export const addPremium = () => dispatch =>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Premium');
+    database.push().set({
+        Premium: true
+    })
+}
 
 export const removeExpenseDatabase = (noteId) => dispatch=>{
     let userKey = fire.auth().currentUser.uid;

@@ -7,11 +7,13 @@ import {
   } from 'recharts';
 
 import './MortgagePage.css'
+import {connect} from 'react-redux';
+import PremiumPage from '../Not Premium/PremiumPage'
 
 let amortizationData = []
 let monthlyAmortizationData = []
 
-export default class MortgagePage extends Component {
+class MortgagePage extends Component {
 
     constructor(props){
         super(props);
@@ -19,9 +21,14 @@ export default class MortgagePage extends Component {
             flag: false,
             mortgage: "0",
             loanLength: "0",
+            Premium: []
         }
     }
-
+    componentDidMount(){
+        this.setState({
+            Premium: this.props.Premium
+        })
+    }
     onSubmit = (fields) => {
         var info = fillAmortizationData(fields);
         this.setState({mortgage: info[0].toFixed(2)});
@@ -30,6 +37,10 @@ export default class MortgagePage extends Component {
     }
 
     render(){
+        console.log(this.props.Premium);
+        if(this.state.Premium.length == 0){
+            return (<PremiumPage/>)
+        }
         return(
             <div className="mortgage-body">
                 <Fade/>
@@ -110,5 +121,10 @@ function showAmortizationSchedule(){
         </div>
     )
 }
+function mapStatetoProps({Premium}){
+    return {Premium};
+}
+
+export default connect(mapStatetoProps, null)(MortgagePage);
 
 

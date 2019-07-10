@@ -4,7 +4,7 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
 import {connect} from 'react-redux'
-import {signOut, fetchData} from "../../actions"
+import {signOut, fetchData, fetchPremium} from "../../actions"
 import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'
@@ -27,6 +27,7 @@ class AfterLoginRegistration extends Component{
     componentDidMount(){
         if(this.props.auth){
             this.props.fetchData();
+            this.props.fetchPremium();
         }
     }
     handleClick(){
@@ -121,4 +122,4 @@ function mapStatetoProps({auth}){
     return {auth};
 }
 
-export default withRouter(connect(mapStatetoProps, {signOut, fetchData})(AfterLoginRegistration));
+export default withRouter(connect(mapStatetoProps, {signOut, fetchData, fetchPremium})(AfterLoginRegistration));
