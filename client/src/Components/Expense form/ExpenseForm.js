@@ -38,8 +38,9 @@ export default class ExpenseForm extends Component {
 
     render() {
         return (
-            <div className="Alignment">
+            <div className="Alignment-Expense">
                 <form onSubmit={this.handleSubmit}> 
+                    <h1 className="E-Form-Header">Input Expense</h1>
                     <label>
                         <input 
                             type="text" 
