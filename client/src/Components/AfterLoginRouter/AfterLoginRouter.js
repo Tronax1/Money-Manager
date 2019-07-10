@@ -10,6 +10,7 @@ import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'
 import Stock from '../UserProfile/Stocks/stock'
 import {Redirect} from "react-router"
+import './AfterLoginRouter.css'
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from '@material-ui/icons/Home'
@@ -58,7 +59,7 @@ class AfterLoginRegistration extends Component{
                                 </NavText>
                                 </NavItem>
 
-                                <NavItem eventKey = "test">
+                                <NavItem eventKey = "Expenses">
                                     <NavIcon>
                                         <AssignmentIcon/>
                                     </NavIcon>
@@ -94,14 +95,15 @@ class AfterLoginRegistration extends Component{
                                 </NavText>
                                 </NavItem>
 
-                                <button onClick={this.handleClick}>Logout</button>
+                                <button className="Logout-Button"
+                                onClick={this.handleClick}>LOGOUT</button>
 
                             </SideNav.Nav>
                         </SideNav>
                         <main>
                             <Switch>
                             <Route path ="/user" component={props=><Userhome/>}/>
-                            <Route path="/test" component={props => <TestPage />} />
+                            <Route path="/Expenses" component={props => <TestPage />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
                             <Route path="/savingsCalc" component={props => <Savingscalc />} />
                             <Route path="/stock" component={props => <Stock />} />
