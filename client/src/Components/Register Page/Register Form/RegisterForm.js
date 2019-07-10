@@ -28,6 +28,7 @@ class RegisterForm extends Component {
         return (
             <div>
                 <form className="Alignment" onSubmit={this.handleSubmit}>
+                    <h1 className="Login-Register">Register</h1>
                     <label>
                         <input type="text" className="Text-box" placeholder="Name" name="Name"
                         onChange={this.handleChange} />

@@ -25,6 +25,7 @@ class LoginForm extends Component {
         return (
             <div>
                 <form className="Alignment" onSubmit={this.handleSubmit}>
+                    <h1 className="Login-Register">Log In</h1>
                     <label>
                         <input type="email" className="Text-box" placeholder="User" name="email"
                          onChange={this.handleChange}/>
