@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
+import {Redirect} from "react-router"
 
 import LoginPage from "../Login page/LoginPage"
-import AfterLoginRouter from "../AfterLoginRouter/AfterLoginRouter"
 
 
 class Auth extends Component {
     render() {
         return(
             <div>
-                {this.props.auth ? (<AfterLoginRouter /> ) : ( <LoginPage /> )} 
+                {this.props.auth ? (<Redirect to="/user" /> ) : ( <LoginPage /> )} 
             </div>
         )
     }

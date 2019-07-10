@@ -15,3 +15,10 @@
     border-radius: 10px;
     box-shadow: 5px 10px 8px;
 }
+.Close-button{
+    cursor: default;
+    font-size: 17px;
+}
+.Close-button:hover{
+    color: red;
+}

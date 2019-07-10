@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter, Route} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
@@ -9,6 +9,8 @@ import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'
 import Stock from '../UserProfile/Stocks/stock'
+import {Redirect} from "react-router"
+import './AfterLoginRouter.css'
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from '@material-ui/icons/Home'
@@ -23,13 +25,17 @@ class AfterLoginRegistration extends Component{
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount(){
-        this.props.fetchData();
+        if(this.props.auth){
+            this.props.fetchData();
+        }
     }
     handleClick(){
         this.props.signOut();
-        this.props.history.push('/Login');
     }
     render(){
+        if(!this.props.auth){
+            return(<Redirect to="/Login"/>)
+        }
         return (
             <BrowserRouter>
                 <Route render={({ location, history }) => (
@@ -53,7 +59,7 @@ class AfterLoginRegistration extends Component{
                                 </NavText>
                                 </NavItem>
 
-                                <NavItem eventKey = "test">
+                                <NavItem eventKey = "Expenses">
                                     <NavIcon>
                                         <AssignmentIcon/>
                                     </NavIcon>
@@ -89,16 +95,19 @@ class AfterLoginRegistration extends Component{
                                 </NavText>
                                 </NavItem>
 
-                                <button onClick={this.handleClick}>Logout</button>
+                                <button className="Logout-Button"
+                                onClick={this.handleClick}>LOGOUT</button>
 
                             </SideNav.Nav>
                         </SideNav>
                         <main>
+                            <Switch>
                             <Route path ="/user" component={props=><Userhome/>}/>
-                            <Route path="/test" component={props => <TestPage />} />
+                            <Route path="/Expenses" component={props => <TestPage />} />
                             <Route path="/mortgage" component={props => <MortgagePage />} />
                             <Route path="/savingsCalc" component={props => <Savingscalc />} />
                             <Route path="/stock" component={props => <Stock />} />
+                            </Switch>
                         </main>
                     </React.Fragment>
                 )}
@@ -108,4 +117,8 @@ class AfterLoginRegistration extends Component{
     }
 }
 
-export default connect(null, {signOut, fetchData})(withRouter(AfterLoginRegistration));
+function mapStatetoProps({auth}){
+    return {auth};
+}
+
+export default withRouter(connect(mapStatetoProps, {signOut, fetchData})(AfterLoginRegistration));

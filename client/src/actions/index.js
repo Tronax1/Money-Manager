@@ -32,7 +32,6 @@ export const fetchData = () =>  dispatch => {
         
     })
     database.on('child_removed', snap=>{
-        console.log("You are deleting me");
         for(let i =0; i< allExpenses.length; i++){
             if (allExpenses[i].id == snap.key){
                 allExpenses.splice(i, 1);
@@ -74,7 +73,6 @@ export const signIn = (user, pass) => dispatch => {
 export const signUp = (user, pass) => dispatch =>{
     let ref = fire.database().ref().child('Users')
     fire.auth().createUserWithEmailAndPassword(user, pass).then(data=>{
-        console.log(data);
         ref.push().set({
             user: user,
             password: pass
