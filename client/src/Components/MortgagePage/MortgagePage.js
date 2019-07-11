@@ -24,6 +24,16 @@ class MortgagePage extends Component {
             Premium: []
         }
     }
+
+
+    moreDetails(){
+        var temp = [];
+        for(var i = 0; i<monthlyAmortizationData.length; i++){
+            temp.push(<li>{monthlyAmortizationData[i].name}</li>);
+        }
+
+        return <ul>{temp}</ul>;
+    }
     componentDidMount(){
         this.setState({
             Premium: this.props.Premium
@@ -36,7 +46,7 @@ class MortgagePage extends Component {
         this.setState({flag: true});
     }
 
-    render(){
+    render(){ 
         console.log(this.props.Premium);
         if(this.state.Premium.length == 0){
             return (<PremiumPage/>)
@@ -53,10 +63,15 @@ class MortgagePage extends Component {
                         </div>
                     </div>
                     {this.state.flag ? showAmortizationSchedule() : null}
+                    {this.state.flag ? <button onClick={moreDetails}> More Details</button> : null}
                 </div>
             </div>
         )
     }
+}
+
+function moreDetails(){
+    console.log("moreDetails");
 }
 
 function fillAmortizationData(fields){
@@ -94,7 +109,6 @@ function fillAmortizationData(fields){
                     amortizationData.push({name: i/12, Remaining: 0, Principal: totalPrincipalPaid.toFixed(2), Interest: totalInterestPaid.toFixed(2)});
                 } else {
                     amortizationData.push({name: i/12, Remaining: remainingPrincipal.toFixed(2), Principal: totalPrincipalPaid.toFixed(2), Interest: totalInterestPaid.toFixed(2)});
-
                 }
             }
         }
@@ -126,5 +140,4 @@ function mapStatetoProps({Premium}){
 }
 
 export default connect(mapStatetoProps, null)(MortgagePage);
-
 
