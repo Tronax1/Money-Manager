@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MortgageForm from '../Mortgage Form/MortgageForm'
 import MortgageResult from './MortgageResult/MortgageResult'
 import Fade from '../Animations/Smooth Transitions/Fade'
+import ReactToExcel from 'react-html-table-to-excel'
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   } from 'recharts';
@@ -25,15 +26,6 @@ class MortgagePage extends Component {
         }
     }
 
-
-    moreDetails(){
-        var temp = [];
-        for(var i = 0; i<monthlyAmortizationData.length; i++){
-            temp.push(<li>{monthlyAmortizationData[i].name}</li>);
-        }
-
-        return <ul>{temp}</ul>;
-    }
     componentDidMount(){
         this.setState({
             Premium: this.props.Premium
@@ -53,6 +45,14 @@ class MortgagePage extends Component {
         }
         return(
             <div>
+                <div className = 'mortgage-header'>
+                    <h1>Mortgage Calculator</h1>
+                    <p1>Use our mortgage calculator to visualize monthly morthgage rates. 
+                        You can view the ammount of money that you have invested into the principal and interest each month.
+                        When you have submitted your Home Price, Down Payment, Interest Rate, and Loan Term, you will be able to 
+                        view your amortization schedule.You may also click the 'More Details' button to view the amortization schedule
+                        in more detail.</p1>
+                </div>
             <div className="mortgage-body">
                 <Fade/>
                 <div className='mortgage-form'>
@@ -64,7 +64,7 @@ class MortgagePage extends Component {
                         </div>
                     </div>
                     {this.state.flag ? showAmortizationSchedule() : null}
-                    {this.state.flag ? <button onClick={moreDetails}> More Details</button> : null}
+                    {this.state.flag ? showMoreDetails() : null}
                 </div>
             </div>
             </div>
@@ -72,8 +72,34 @@ class MortgagePage extends Component {
     }
 }
 
-function moreDetails(){
-    console.log("moreDetails");
+function showMoreDetails(){
+    console.log('show more details');
+    let temp = [];
+    for(var i = 0; i < monthlyAmortizationData.length; i++){
+        temp.push(<tr>
+            <td>{monthlyAmortizationData[i].name}</td>
+            <td>{monthlyAmortizationData[i].Payment}</td>
+            <td>{monthlyAmortizationData[i].Remaining}</td>
+            <td>{monthlyAmortizationData[i].Principal}</td>
+            <td>{monthlyAmortizationData[i].Interest}</td>
+            </tr>);
+    }
+    return(<table border='1' id = 'table-to-excel'> <ReactToExcel
+    className='btn'
+    table='table-to-excel'
+    filename='mortgage'
+    sheet='sheet 1'
+    buttonText='Export'
+    >
+    </ReactToExcel>
+        <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Principal Remaining</th>
+            <th>Total Principal Payments</th>
+            <th>Total Interest Payment</th>
+            
+        </tr>{temp}</table>);
 }
 
 function fillAmortizationData(fields){

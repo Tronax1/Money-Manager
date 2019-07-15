@@ -12,7 +12,7 @@ export default class UserPage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            total1: 0,
+            total1: 5000,
             total2: 0
         } 
     }
