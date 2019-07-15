@@ -12,8 +12,8 @@ export default class UserPage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            total1: 5000,
-            total2: 2000
+            total1: 0,
+            total2: 0
         } 
     }
 
@@ -80,8 +80,7 @@ export default class UserPage extends Component {
               },
               {
                 label: ' ',
-                value: this.state.total2 * 1.5,
-                isEmpty: true,
+                value: this.state.total1,
                 }
                 ]}/>
                   </div>

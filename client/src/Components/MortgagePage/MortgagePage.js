@@ -52,6 +52,7 @@ class MortgagePage extends Component {
             return (<PremiumPage/>)
         }
         return(
+            <div>
             <div className="mortgage-body">
                 <Fade/>
                 <div className='mortgage-form'>
@@ -65,6 +66,7 @@ class MortgagePage extends Component {
                     {this.state.flag ? showAmortizationSchedule() : null}
                     {this.state.flag ? <button onClick={moreDetails}> More Details</button> : null}
                 </div>
+            </div>
             </div>
         )
     }
