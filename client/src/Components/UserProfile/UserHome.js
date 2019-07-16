@@ -78,10 +78,7 @@ export default class UserPage extends Component {
                     
                     
               },
-              {
-                label: ' ',
-                value: this.state.total1,
-                }
+            
                 ]}/>
                   </div>
                   </div>
@@ -90,8 +87,31 @@ export default class UserPage extends Component {
                         <div className = "Total">
                         Total: ${this.state.total1 - this.state.total2}
                     </div>
+                    {this.state.total1 > this.state.total2 ? addInvestNotes() : addExpenseNotes()}
+
                     
             </div>
         )
     }
+}
+
+function addInvestNotes(){
+    return(<div className='Notes'>
+            <table border='1'>
+                <tr>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Your income is greater than your expenses. A general rule is to save 20% of your income</td>
+                    <td>Think about investing! View stocks with our stock searching tool
+                        <br /> 
+                    </td>
+                </tr>
+            </table>
+            </div>)
+}
+
+function addExpenseNotes(){
+    return null;
 }

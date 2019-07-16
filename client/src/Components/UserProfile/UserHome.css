@@ -1,3 +1,11 @@
+.Notes{
+  display: flex;
+  flex-direction: column;
+  margin-left: 150px;
+  margin-top: 30px;
+  width: 60%;
+}
+
 .Align{
     display: flex;
     flex-direction: row;
@@ -90,15 +98,15 @@ h3{
 }
 
 .donutchart-legend{
-  opacity:0;
+  opacity:1;
 }
 .selected.donutchart-legend-item-label, .toggled.donutchart-legend-item-label {
-  opacity: 0;
+  opacity: 1;
   fill: #960b01;
 }
 
 .donutchart-legend-item-rect{
-  opacity: 0;
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px){
