@@ -4,7 +4,7 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import TestPage from '../Test/Test'
 import MortgagePage from '../MortgagePage/MortgagePage'
 import {connect} from 'react-redux'
-import {signOut, fetchData, fetchPremium} from "../../actions"
+import {signOut, fetchData, fetchPremium, fetchIncome} from "../../actions"
 import {withRouter} from 'react-router-dom'
 import Userhome from '../UserProfile/UserHome'
 import Savingscalc from '../UserProfile/Savingscalc'

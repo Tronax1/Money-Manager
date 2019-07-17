@@ -1,5 +1,5 @@
 import fire from "../Config/Fire";
-import {FETCH_USER, FETCH_DATA, FETCH_PREMIUM} from "./types"
+import {FETCH_USER, FETCH_DATA, FETCH_PREMIUM, FETCH_INCOME} from "./types"
 
 export const fetchUser = () => dispatch => {
     fire.auth().onAuthStateChanged(user => {
@@ -44,6 +44,25 @@ export const fetchData = () =>  dispatch => {
     })
 };
 
+export const addIncome = (income) => dispatch =>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Income');
+    database.push().set({
+        Income: income
+    })
+}
+export const fetchIncome = () => dispatch =>{
+    let userKey = fire.auth().currentUser.uid;
+    let database = fire.database().ref().child('Users').child(userKey).child('Income');
+    let MoneyCash = 0;
+    database.on('child_added', snap=>{
+        MoneyCash = snap.val().Income;
+    })
+    dispatch({
+        type: FETCH_INCOME,
+        payload: MoneyCash
+    });
+}
 export const fetchPremium = () => dispatch =>{
     let userKey = fire.auth().currentUser.uid;
     let database = fire.database().ref().child('Users').child(userKey).child('Premium');

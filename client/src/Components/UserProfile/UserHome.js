@@ -6,18 +6,25 @@ import "./UserHome.css"
 import fire from '../../Config/Fire'
 import Firebase from 'firebase'
 import fetchData from '../../index'
+import {connect} from 'react-redux'
+import {fetchIncome, addIncome} from '../../actions'
 
 
-export default class UserPage extends Component {
+class UserPage extends Component {
     constructor(props){
         super(props)
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            total1: 5000,
-            total2: 0
+            total1: this.props.Income,
+            total2: 0,
+            Income: ""
         } 
     }
 
     componentWillMount(){
+        this.props.fetchIncome();
+        console.log(this.props.Income);
         let userKey = fire.auth().currentUser.uid;
         let database = fire.database().ref().child('Users').child(userKey).child('Expenses');
         let newState = [];
@@ -39,7 +46,21 @@ export default class UserPage extends Component {
         this.setState({
             total2: totalExpense,
         })
+        
     }   
+    handleChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.addIncome(this.state.Income);
+        this.setState({
+            Income: "",
+            total1: this.props.Income
+        })
+    }
 
     render() {
 
@@ -57,7 +78,9 @@ export default class UserPage extends Component {
                 <div className ="donut1"> 
                 <h3 className = "donut1-text"> Income </h3>
         
-                
+                <input type="text" name="Income" 
+                onChange={this.handleChange} value={this.state.Income}></input>
+                <button onClick={this.handleSubmit}>Add income</button>
               <DonutChart
               
               data = {[{
@@ -87,7 +110,7 @@ export default class UserPage extends Component {
                         <div className = "Total">
                         Total: ${this.state.total1 - this.state.total2}
                     </div>
-                    {this.state.total1 > this.state.total2 ? addInvestNotes() : addExpenseNotes()}
+                    {this.state.total1 > this.state.total2 ? addInvestNotes() : null}
 
                     
             </div>
@@ -105,13 +128,14 @@ function addInvestNotes(){
                 <tr>
                     <td>Your income is greater than your expenses. A general rule is to save 20% of your income</td>
                     <td>Think about investing! View stocks with our stock searching tool
-                        <br /> 
+                        <br /> Invest in Real Estate! Calculate Mortgage with our Mortagage Calculating tool
                     </td>
                 </tr>
             </table>
             </div>)
 }
-
-function addExpenseNotes(){
-    return null;
+function mapStatetoProps({Income}){
+    return {Income};
 }
+
+export default connect (mapStatetoProps,{addIncome, fetchIncome})(UserPage)
