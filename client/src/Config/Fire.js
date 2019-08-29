@@ -1,15 +1,15 @@
 import firebase from 'firebase'
-import configKeys from './APIKeys'
     // Your web app's Firebase configuration
     const firebaseConfig = {
-        apiKey: configKeys.apiKey,
-        authDomain: configKeys.authDomain,
-        databaseURL: configKeys.databaseURL,
-        projectId: configKeys.projectId,
-        storageBucket: configKeys.storageBucket,
-        messagingSenderId: configKeys.messagingSenderId,
-        appId: configKeys.appId
+      apiKey: process.env.REACT_APP_APIKEY,
+      authDomain: process.env.REACT_APP_AUTHDOMAIN,
+      databaseURL: process.env.REACT_APP_DATABASEURL,
+      projectId: process.env.REACT_APP_PROJECTID,
+      storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+      messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+      appId: process.env.REACT_APP_APPID
   };
+console.log(process.env.AUTHDOMAIN);
   // Initialize Firebase
   const fire = firebase.initializeApp(firebaseConfig);
   export default fire;
